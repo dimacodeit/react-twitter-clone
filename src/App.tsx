@@ -1,7 +1,23 @@
 import logo from './logo.svg';
 import './App.scss';
+import { Routes, Route, Link, Outlet } from 'react-router-dom';
 
 function App() {
+  return (
+    <>
+      <nav className="plain-nav">
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/about/*" element={<About />} />
+      </Routes>
+    </>
+  );
+}
+
+function MainPage() {
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +35,30 @@ function App() {
         </a>
       </header>
     </div>
+  );
+}
+
+function About() {
+  return (
+    <>
+      <h1>About page</h1>
+      <Link to="nested">go nest</Link>
+      <Routes>
+        <Route path="/nested" element={<AboutNest />} />
+      </Routes>
+      <div className="outlet-nest">
+        <Outlet />
+      </div>
+    </>
+  );
+}
+
+function AboutNest() {
+  return (
+    <>
+      <p>Nested route</p>
+      <Link to="..">get back</Link>
+    </>
   );
 }
 

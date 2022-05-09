@@ -38,3 +38,14 @@ $color: red;
     transform: rotate(360deg);
   }
 }
+
+.plain-nav {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
