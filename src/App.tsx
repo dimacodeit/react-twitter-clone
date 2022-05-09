@@ -1,19 +1,56 @@
 import logo from './logo.svg';
 import './App.scss';
 import { Routes, Route, Link, Outlet } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { useState } from 'react';
 
 function App() {
+  const [sub, setSub] = useState(false);
+
+  const submitHandle = () => setSub(true);
+
+  if (sub)
+    return (
+      <>
+        <nav className="plain-nav">
+          <Link to="/">Home</Link>
+          <Link to="about">About</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/about/*" element={<About />} />
+        </Routes>
+      </>
+    );
+
+  return <SignupForm submitted={submitHandle} />;
+}
+
+function SignupForm(props: any) {
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      props.submitted();
+    },
+  });
   return (
-    <>
-      <nav className="plain-nav">
-        <Link to="/">Home</Link>
-        <Link to="about">About</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/about/*" element={<About />} />
-      </Routes>
-    </>
+    <div className="form-wrapper">
+      <form className="form" onSubmit={formik.handleSubmit}>
+        <label htmlFor="email">Email Address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+        />
+
+        <button type="submit">Log in</button>
+      </form>
+    </div>
   );
 }
 

@@ -49,3 +49,25 @@ $color: red;
     margin-right: 1rem;
   }
 }
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    max-width: 200px;
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
