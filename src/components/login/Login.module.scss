@@ -1,0 +1,52 @@
+$width: 18.75rem;
+
+.form {
+  width: 37.5rem;
+  height: 40.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--white-bg);
+  border-radius: 1rem;
+  position: relative;
+
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.form__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--gray-bg);
+  height: 100%;
+}
+
+.form__logo {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 64px;
+}
+
+.form__input {
+  width: $width;
+}
+
+.form__button {
+  width: $width;
+}
+
+.form__tip {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  opacity: 0.3;
+}

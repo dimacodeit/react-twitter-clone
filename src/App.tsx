@@ -1,60 +1,37 @@
 import logo from './logo.svg';
 import './App.scss';
-import { Routes, Route, Link, Outlet } from 'react-router-dom';
-import { useFormik } from 'formik';
-import { useState } from 'react';
-import { Button, TextField } from '@mui/material';
+import { Routes, Route, Link, Outlet, useNavigate } from 'react-router-dom';
+
+import { useEffect, useState } from 'react';
+import { SignupForm } from './components/login/Login';
 
 function App() {
   const [sub, setSub] = useState(false);
+  const navigate = useNavigate();
+  const submitHandle = () => {
+    setSub(true);
+    navigate('/');
+  };
 
-  const submitHandle = () => setSub(true);
+  useEffect(() => {
+    if (!sub) navigate('/login');
+  }, [navigate, sub]);
 
-  if (sub)
-    return (
-      <>
-        <nav className="plain-nav">
-          <Link to="/">Home</Link>
-          <Link to="about">About</Link>
-        </nav>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about/*" element={<About />} />
-        </Routes>
-      </>
-    );
-
-  return <SignupForm submitted={submitHandle} />;
-}
-
-function SignupForm(props: any) {
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-    },
-    onSubmit: (values) => {
-      console.log(values);
-      if (values.email) props.submitted();
-    },
-  });
   return (
-    <div className="form-wrapper">
-      <form className="form" onSubmit={formik.handleSubmit}>
-        <label htmlFor="email">Email Address</label>
-        <TextField
-          id="outlined-basic"
-          label="Outlined"
-          variant="outlined"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
+    <>
+      <nav className="plain-nav">
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/login"
+          element={<SignupForm submitted={submitHandle} />}
         />
-        <Button variant="contained" type="submit">
-          Log in
-        </Button>
-      </form>
-    </div>
+        <Route path="/about/*" element={<About />} />
+      </Routes>
+    </>
   );
 }
 
