@@ -21,10 +21,9 @@ export function SignupForm(props: any) {
         <TextField
           className={styles.form__input}
           id="outlined-basic"
-          label="Номер телефона, адрес почты"
+          label="Любой номер телефона, адрес почты"
           variant="outlined"
           name="email"
-          type="email"
           onChange={formik.handleChange}
           value={formik.values.email}
         />
@@ -35,6 +34,9 @@ export function SignupForm(props: any) {
         >
           Далее
         </Button>
+        <p className={styles.form__tip}>
+          Не используется для регистрации, достаточно заполнить инпут
+        </p>
       </form>
     </div>
   );

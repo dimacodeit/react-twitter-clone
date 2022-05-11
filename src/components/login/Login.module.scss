@@ -40,3 +40,13 @@ $width: 18.75rem;
 .form__button {
   width: $width;
 }
+
+.form__tip {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  opacity: 0.3;
+}
