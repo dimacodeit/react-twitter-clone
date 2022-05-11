@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.scss';
 import { Routes, Route, Link, Outlet } from 'react-router-dom';
-import { useFormik } from 'formik';
+
 import { useState } from 'react';
-import { Button, TextField } from '@mui/material';
+import { SignupForm } from './components/login/Login';
 
 function App() {
   const [sub, setSub] = useState(false);
@@ -25,37 +25,6 @@ function App() {
     );
 
   return <SignupForm submitted={submitHandle} />;
-}
-
-function SignupForm(props: any) {
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-    },
-    onSubmit: (values) => {
-      console.log(values);
-      if (values.email) props.submitted();
-    },
-  });
-  return (
-    <div className="form-wrapper">
-      <form className="form" onSubmit={formik.handleSubmit}>
-        <label htmlFor="email">Email Address</label>
-        <TextField
-          id="outlined-basic"
-          label="Outlined"
-          variant="outlined"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-        <Button variant="contained" type="submit">
-          Log in
-        </Button>
-      </form>
-    </div>
-  );
 }
 
 function MainPage() {
