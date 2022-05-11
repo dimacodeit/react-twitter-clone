@@ -3,6 +3,7 @@ import './App.scss';
 import { Routes, Route, Link, Outlet } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { Button, TextField } from '@mui/material';
 
 function App() {
   const [sub, setSub] = useState(false);
@@ -33,22 +34,25 @@ function SignupForm(props: any) {
     },
     onSubmit: (values) => {
       console.log(values);
-      props.submitted();
+      if (values.email) props.submitted();
     },
   });
   return (
     <div className="form-wrapper">
       <form className="form" onSubmit={formik.handleSubmit}>
         <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
+        <TextField
+          id="outlined-basic"
+          label="Outlined"
+          variant="outlined"
           name="email"
           type="email"
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-
-        <button type="submit">Log in</button>
+        <Button variant="contained" type="submit">
+          Log in
+        </Button>
       </form>
     </div>
   );
