@@ -1,30 +1,38 @@
 import logo from './logo.svg';
 import './App.scss';
-import { Routes, Route, Link, Outlet } from 'react-router-dom';
+import { Routes, Route, Link, Outlet, useNavigate } from 'react-router-dom';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SignupForm } from './components/login/Login';
 
 function App() {
   const [sub, setSub] = useState(false);
+  const navigate = useNavigate();
+  const submitHandle = () => {
+    setSub(true);
+    navigate('/');
+  };
 
-  const submitHandle = () => setSub(true);
+  useEffect(() => {
+    if (!sub) navigate('/login');
+  }, [navigate, sub]);
 
-  if (sub)
-    return (
-      <>
-        <nav className="plain-nav">
-          <Link to="/">Home</Link>
-          <Link to="about">About</Link>
-        </nav>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about/*" element={<About />} />
-        </Routes>
-      </>
-    );
-
-  return <SignupForm submitted={submitHandle} />;
+  return (
+    <>
+      <nav className="plain-nav">
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/login"
+          element={<SignupForm submitted={submitHandle} />}
+        />
+        <Route path="/about/*" element={<About />} />
+      </Routes>
+    </>
+  );
 }
 
 function MainPage() {
