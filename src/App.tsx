@@ -12,9 +12,7 @@ function App() {
   const dispatch = useAppDispatch();
   const { login } = authSlice.actions;
   const navigate = useNavigate();
-  const submitHandle = () => {
-    dispatch(login());
-  };
+  const submitHandle = () => dispatch(login());
 
   useEffect(() => {
     if (!isLoggedIn) navigate('/login');
