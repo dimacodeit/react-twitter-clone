@@ -3,15 +3,23 @@ import { useFormik } from 'formik';
 import styles from './Login.module.scss';
 import svg from '../../assets/svg/logo.svg';
 
+type LoginForm = {
+  login: string;
+};
+
+const validate = (values: LoginForm) => {
+  const errors: { login?: string } = {};
+  if (!values.login) errors.login = 'Введите логин';
+  return errors;
+};
+
 export function SignupForm(props: any) {
-  const formik = useFormik({
+  const formik = useFormik<LoginForm>({
     initialValues: {
-      email: '',
+      login: '',
     },
-    onSubmit: (values) => {
-      console.log(values);
-      if (values.email) props.submitted();
-    },
+    validate,
+    onSubmit: () => props.submitted(),
   });
   return (
     <div className={styles.form__wrapper}>
@@ -23,9 +31,10 @@ export function SignupForm(props: any) {
           id="outlined-basic"
           label="Любой номер телефона, адрес почты"
           variant="outlined"
-          name="email"
+          name="login"
           onChange={formik.handleChange}
-          value={formik.values.email}
+          value={formik.values.login}
+          error={!!formik.errors.login}
         />
         <Button
           className={styles.form__button}
