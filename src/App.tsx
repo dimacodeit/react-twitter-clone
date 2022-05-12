@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.scss';
-import { Routes, Route, Link, Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
-import { SignupForm } from './components/login/Login';
+
+import { Views } from './components/views/Views';
 
 function App() {
   const [sub, setSub] = useState(false);
@@ -17,62 +17,7 @@ function App() {
     if (!sub) navigate('/login');
   }, [navigate, sub]);
 
-  return (
-    <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/login" element={<SignupForm submitted={submitHandle} />} />
-      <Route path="/about/*" element={<About />} />
-    </Routes>
-  );
-}
-
-function MainPage() {
-  return (
-    <div className="App">
-      <nav className="plain-nav">
-        <Link to="/">Home</Link>
-        <Link to="about">About</Link>
-      </nav>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <>
-      <h1>About page</h1>
-      <Link to="nested">go nest</Link>
-      <Routes>
-        <Route path="/nested" element={<AboutNest />} />
-      </Routes>
-      <div className="outlet-nest">
-        <Outlet />
-      </div>
-    </>
-  );
-}
-
-function AboutNest() {
-  return (
-    <>
-      <p>Nested route</p>
-      <Link to="..">get back</Link>
-    </>
-  );
+  return <Views submitHandle={submitHandle} />;
 }
 
 export default App;
