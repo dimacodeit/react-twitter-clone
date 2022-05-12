@@ -17,7 +17,7 @@ export function SignupForm(props: any) {
     <div className={styles.form__wrapper}>
       <form className={styles.form} onSubmit={formik.handleSubmit}>
         <img className={styles.form__logo} src={svg} alt="twitter logo" />
-        <h1>Вход в Твиттер [dev]</h1>
+        <h1>Вход в Твиттер</h1>
         <TextField
           className={styles.form__input}
           id="outlined-basic"

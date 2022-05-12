@@ -18,26 +18,21 @@ function App() {
   }, [navigate, sub]);
 
   return (
-    <>
-      <nav className="plain-nav">
-        <Link to="/">Home</Link>
-        <Link to="about">About</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route
-          path="/login"
-          element={<SignupForm submitted={submitHandle} />}
-        />
-        <Route path="/about/*" element={<About />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/login" element={<SignupForm submitted={submitHandle} />} />
+      <Route path="/about/*" element={<About />} />
+    </Routes>
   );
 }
 
 function MainPage() {
   return (
     <div className="App">
+      <nav className="plain-nav">
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+      </nav>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
