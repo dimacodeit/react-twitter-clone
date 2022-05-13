@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Outlet, Route, Routes } from 'react-router-dom';
 import styles from './Main-layout.module.scss';
 import SideMenu from './side-menu/Side-menu';
 
@@ -11,9 +10,42 @@ export default function Layout(props: ILayoutProps) {
       <SideMenu />
       <main>
         <Routes>
-          <Route index element={<div>home</div>} />
+          <Route
+            index
+            element={
+              <div>
+                <h1>Home</h1>
+                Илюх доверстай
+              </div>
+            }
+          />
+          <Route path="about/*" element={<About />} />
         </Routes>
       </main>
     </div>
+  );
+}
+
+function About() {
+  return (
+    <>
+      <h1>About page</h1>
+      <Link to="nested">go nest</Link>
+      <Routes>
+        <Route path="/nested" element={<AboutNest />} />
+      </Routes>
+      <div className="outlet-nest">
+        <Outlet />
+      </div>
+    </>
+  );
+}
+
+function AboutNest() {
+  return (
+    <>
+      <p>Nested route</p>
+      <Link to="..">get back</Link>
+    </>
   );
 }
