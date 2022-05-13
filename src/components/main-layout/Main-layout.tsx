@@ -9,7 +9,7 @@ export default function Layout() {
       <main>
         <Routes>
           <Route
-            index
+            path="home"
             element={
               <div>
                 <h1>Home</h1>
