@@ -5,18 +5,11 @@ import { Button } from '@mui/material';
 import { useAppDispatch } from '../../hooks/redux';
 import { authSlice } from '../../store/reducers/AuthSlice';
 
-export interface IViewsProps {
-  submitHandle: Function;
-}
-
-export function Views(props: IViewsProps) {
+export function Views() {
   return (
     <Routes>
       <Route path="/*" element={<MainPageView />} />
-      <Route
-        path="/login"
-        element={<SignupForm submitted={props.submitHandle} />}
-      />
+      <Route path="/login" element={<SignupForm />} />
     </Routes>
   );
 }
