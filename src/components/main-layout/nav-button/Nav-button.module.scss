@@ -7,6 +7,9 @@
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 700;
@@ -20,4 +23,8 @@
   &:focus {
     outline: 3px solid var(--gray-bg);
   }
+}
+
+.button__icon {
+  margin-right: 0.75rem;
 }
