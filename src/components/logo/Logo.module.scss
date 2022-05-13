@@ -1,0 +1,25 @@
+.logo {
+  width: 52px;
+  height: 52px;
+}
+
+.logo__wrap {
+  display: flex;
+  margin-left: 2.5rem;
+  width: 100%;
+}
+
+.logo__hover {
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 52px !important;
+
+  &:hover {
+    background: var(--primary-hover);
+  }
+
+  &:focus {
+    outline: 3px solid rgb(142, 205, 248);
+    background: var(--primary-hover);
+  }
+}

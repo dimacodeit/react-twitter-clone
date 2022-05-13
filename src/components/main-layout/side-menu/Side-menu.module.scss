@@ -1,12 +1,23 @@
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem 0;
+
+  a {
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-  height: 20rem;
+  justify-content: flex-start;
+  height: 100%;
 
   & > *:not(:last-child) {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 }

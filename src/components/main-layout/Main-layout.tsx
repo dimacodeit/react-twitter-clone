@@ -2,16 +2,14 @@ import { Link, Outlet, Route, Routes } from 'react-router-dom';
 import styles from './Main-layout.module.scss';
 import SideMenu from './side-menu/Side-menu';
 
-export interface ILayoutProps {}
-
-export default function Layout(props: ILayoutProps) {
+export default function Layout() {
   return (
     <div className={styles.layout}>
       <SideMenu />
       <main>
         <Routes>
           <Route
-            index
+            path="home"
             element={
               <div>
                 <h1>Home</h1>

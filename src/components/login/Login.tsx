@@ -1,10 +1,10 @@
 import { Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import styles from './Login.module.scss';
-import svg from '../../assets/svg/logo.svg';
 import { useAppDispatch } from '../../hooks/redux';
 import { authSlice } from '../../store/reducers/AuthSlice';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../logo/Logo';
 
 type LoginForm = {
   login: string;
@@ -33,7 +33,9 @@ export function SignupForm() {
   return (
     <div className={styles.form__wrapper}>
       <form className={styles.form} onSubmit={formik.handleSubmit}>
-        <img className={styles.form__logo} src={svg} alt="twitter logo" />
+        <div className={styles.form__logo}>
+          <Logo previewOnly />
+        </div>
         <h1>Вход в Твиттер</h1>
         <TextField
           className={styles.form__input}
