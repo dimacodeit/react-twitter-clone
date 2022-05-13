@@ -2,6 +2,9 @@ import { Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import styles from './Login.module.scss';
 import svg from '../../assets/svg/logo.svg';
+import { useAppDispatch } from '../../hooks/redux';
+import { authSlice } from '../../store/reducers/AuthSlice';
+import { useNavigate } from 'react-router-dom';
 
 type LoginForm = {
   login: string;
@@ -13,13 +16,19 @@ const validate = (values: LoginForm) => {
   return errors;
 };
 
-export function SignupForm(props: any) {
+export function SignupForm() {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const { login } = authSlice.actions;
   const formik = useFormik<LoginForm>({
     initialValues: {
       login: '',
     },
     validate,
-    onSubmit: () => props.submitted(),
+    onSubmit: () => {
+      dispatch(login());
+      navigate('/');
+    },
   });
   return (
     <div className={styles.form__wrapper}>
