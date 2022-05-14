@@ -10,16 +10,16 @@ export interface INavButtonProps {
 }
 
 export default function NavButton(props: INavButtonProps) {
+  const Icon = props.icon;
+  const iconStyles = {
+    width: '35px',
+    height: '35px',
+  };
+
   return (
     <Link tabIndex={-1} className={styles.link} to={props.to}>
       <button className={styles.button}>
-        {React.createElement(props.icon, {
-          className: styles.button__icon,
-          style: {
-            width: '35px',
-            height: '35px',
-          },
-        })}
+        <Icon className={styles.button__icon} style={iconStyles} />
         {props.title}
       </button>
     </Link>
