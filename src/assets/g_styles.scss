@@ -1,4 +1,9 @@
-html,
+html {
+  height: 100%;
+  overflow-y: scroll;
+  overscroll-behavior-y: none;
+}
+
 body,
 #root {
   height: 100%;
