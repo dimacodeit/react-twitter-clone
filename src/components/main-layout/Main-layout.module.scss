@@ -1,3 +1,5 @@
+@import '../../assets/adaptive.scss';
+
 .main {
   border: 2px solid var(--border-color);
 }
@@ -8,14 +10,14 @@
   height: 100%;
 }
 
-@media (max-width: 1279px) {
+@media (max-width: $laptop-l-breakpoint) {
   .layout {
     grid-template-columns: minmax(100px, 0.4fr) 1fr;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $laptop-breakpoint) {
   .layout {
-    grid-template-columns: minmax(100px, 0.3fr) 1fr;
+    grid-template-columns: 100px 1fr;
   }
 }

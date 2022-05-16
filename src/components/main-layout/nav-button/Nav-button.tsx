@@ -5,22 +5,17 @@ import styles from './Nav-button.module.scss';
 
 export interface INavButtonProps {
   icon: SvgIconComponent;
-  title: string;
+  label: string;
   to: string;
 }
 
 export default function NavButton(props: INavButtonProps) {
   const Icon = props.icon;
-  const iconStyles = {
-    width: '35px',
-    height: '35px',
-  };
-
   return (
     <Link tabIndex={-1} className={styles.link} to={props.to}>
       <button className={styles.button}>
-        <Icon className={styles.button__icon} style={iconStyles} />
-        {props.title}
+        <Icon className={styles.button__icon} />
+        <label className={styles.button__label}>{props.label}</label>
       </button>
     </Link>
   );

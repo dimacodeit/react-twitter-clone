@@ -1,3 +1,5 @@
+@import './adaptive.scss';
+
 html {
   height: 100%;
   overflow-y: scroll;
@@ -19,6 +21,7 @@ body,
   --main-h-padding: 1.5rem;
   --main-v-padding: 1rem;
   --sticky-header-height: 60px;
+  --media-wide: 1279px;
 }
 
 .page-title {
@@ -28,4 +31,10 @@ body,
 .page-layout {
   display: grid;
   grid-template-columns: 1.4fr minmax(330px, 0.6fr);
+}
+
+@media (max-width: $laptop-breakpoint) {
+  .page-layout {
+    grid-template-columns: 1.4fr minmax(260px, 0.6fr);
+  }
 }

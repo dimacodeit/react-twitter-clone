@@ -1,3 +1,5 @@
+@import '../../../assets//adaptive.scss';
+
 .link {
   &:hover {
     .button {
@@ -27,4 +29,30 @@
 
 .button__icon {
   margin-right: 0.75rem;
+  width: 35px !important;
+  height: 35px !important;
+}
+
+@media (max-width: $laptop-l-breakpoint) {
+  .button {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0.75rem, 1.5rem;
+  }
+}
+
+@media (max-width: $laptop-breakpoint) {
+  .button {
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .button__label {
+    display: none;
+  }
+
+  .button__icon {
+    margin: 0;
+  }
 }
