@@ -35,4 +35,22 @@ export const MOCK_TWEETS = [
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum doloremque delectus porro hic facere saepe? Adipisci tenetur beatae error! Facere modi assumenda est id expedita labore voluptates, suscipit molestiae sequi.',
     date: 'Mon May 16 2022 14:00:46 GMT+0300 (Moscow Standard Time)',
   },
+  {
+    id: 7,
+    name: 'Name 7',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum doloremque delectus porro hic facere saepe? Adipisci tenetur beatae error! Facere modi assumenda est id expedita labore voluptates, suscipit molestiae sequi.',
+    date: 'Mon May 16 2022 14:00:46 GMT+0300 (Moscow Standard Time)',
+  },
+  {
+    id: 8,
+    name: 'Name 8',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum doloremque delectus porro hic facere saepe? Adipisci tenetur beatae error! Facere modi assumenda est id expedita labore voluptates, suscipit molestiae sequi.',
+    date: 'Mon May 16 2022 14:00:46 GMT+0300 (Moscow Standard Time)',
+  },
+  {
+    id: 9,
+    name: 'Name 9',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum doloremque delectus porro hic facere saepe? Adipisci tenetur beatae error! Facere modi assumenda est id expedita labore voluptates, suscipit molestiae sequi.',
+    date: 'Mon May 16 2022 14:00:46 GMT+0300 (Moscow Standard Time)',
+  },
 ];
