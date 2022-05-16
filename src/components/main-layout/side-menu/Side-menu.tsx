@@ -10,11 +10,13 @@ export default function SideMenu() {
   // eslint-disable-next-line no-restricted-globals
   const logoutHandler = () => confirm('Are you sure?') && dispatch(logout());
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav} style={{ position: 'relative' }}>
-        <Navigation />
-        <Button onClick={logoutHandler}>logout</Button>
-      </nav>
-    </header>
+    <div>
+      <header className={styles.header}>
+        <nav className={styles.nav} style={{ position: 'relative' }}>
+          <Navigation />
+          <Button onClick={logoutHandler}>logout</Button>
+        </nav>
+      </header>
+    </div>
   );
 }
