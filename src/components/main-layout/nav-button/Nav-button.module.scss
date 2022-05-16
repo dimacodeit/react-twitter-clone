@@ -1,0 +1,30 @@
+.link {
+  &:hover {
+    .button {
+      background-color: var(--gray-hover);
+    }
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:focus {
+    outline: 3px solid var(--gray-bg);
+  }
+}
+
+.button__icon {
+  margin-right: 0.75rem;
+}

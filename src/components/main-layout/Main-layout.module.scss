@@ -1,0 +1,17 @@
+.layout {
+  display: grid;
+  grid-template-columns: 450px auto;
+  height: 100%;
+}
+
+@media (max-width: 1279px) {
+  .layout {
+    grid-template-columns: minmax(100px, 0.4fr) 1fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: minmax(100px, 0.3fr) 1fr;
+  }
+}
