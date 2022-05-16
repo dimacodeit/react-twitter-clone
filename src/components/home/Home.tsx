@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import StickyHeader from '../sticky-header/Sticky-header';
 import Trends from '../trends/Trends';
 import Card from './card/Card';
 import HomeHeader from './home-header/Home-header';
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <div className="page-layout">
       <div>
+        <StickyHeader header="Home" />
         <HomeHeader tweetHandler={tweetHandler} />
         {mocks.map((tweet, index) => (
           <Card tweet={tweet} key={tweet.id} isFirst={index === 0} />

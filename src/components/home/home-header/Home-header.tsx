@@ -17,7 +17,6 @@ export default function HomeHeader(props: IHomeHeaderProps) {
 
   return (
     <div className={styles.header}>
-      <h2 className={styles.header__title}>Home</h2>
       <textarea
         placeholder={`What's happening?`}
         className={styles.header__textarea}
