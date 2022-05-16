@@ -1,0 +1,8 @@
+.card {
+  border-bottom: 2px solid var(--border-color);
+  padding: var(--main-v-padding) var(--main-h-padding);
+
+  &.first {
+    border-top: 2px solid var(--border-color);
+  }
+}

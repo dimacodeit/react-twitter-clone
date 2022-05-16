@@ -11,4 +11,10 @@ body,
   --primary: rgb(29, 155, 240);
   --primary-hover: rgba(29, 155, 240, 0.1);
   --border-color: rgb(239, 243, 244);
+  --main-h-padding: 1.5rem;
+  --main-v-padding: 1rem;
+}
+
+.page-title {
+  padding: 0 var(--main-v-padding);
 }

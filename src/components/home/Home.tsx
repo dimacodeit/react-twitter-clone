@@ -1,15 +1,13 @@
 import Card from './card/Card';
 import { MOCK_TWEETS } from './mocks';
 
-export interface IHomeProps {}
-
-export default function Home(props: IHomeProps) {
+export default function Home() {
   const mocks = MOCK_TWEETS;
   return (
     <div>
-      <h1>Home</h1>
-      {mocks.map((tweet) => (
-        <Card tweet={tweet} key={tweet.id} />
+      <h2 className="page-title">Home</h2>
+      {mocks.map((tweet, index) => (
+        <Card tweet={tweet} key={tweet.id} isFirst={index === 0} />
       ))}
     </div>
   );
