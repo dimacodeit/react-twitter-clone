@@ -12,7 +12,7 @@ export default function Layout() {
   return (
     <div className={styles.layout}>
       <SideMenu />
-      <main>
+      <main className={styles.main}>
         <Routes>
           <Route path="home" element={<Home />} />
           <Route path="explore" element={<Explore />} />

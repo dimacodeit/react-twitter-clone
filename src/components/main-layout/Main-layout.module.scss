@@ -1,3 +1,8 @@
+.main {
+  border: 2px solid var(--border-color);
+  padding: 1rem 2rem;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 450px auto;
