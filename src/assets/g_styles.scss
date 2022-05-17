@@ -39,3 +39,9 @@ body,
     grid-template-columns: 1.4fr minmax(260px, 0.6fr);
   }
 }
+
+@media (max-width: $tablet-breakpoint) {
+  .page-layout {
+    grid-template-columns: auto;
+  }
+}
