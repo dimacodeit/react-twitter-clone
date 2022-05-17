@@ -13,15 +13,16 @@ body,
 
 :root {
   --gray-bg: rgba(0, 0, 0, 0.4);
+  --secondary-bg: rgb(247, 249, 249);
   --white-bg: white;
   --gray-hover: rgba(15, 20, 25, 0.1);
   --primary: rgb(29, 155, 240);
+  --secondary: rgb(83, 100, 113);
   --primary-hover: rgba(29, 155, 240, 0.1);
   --border-color: rgb(239, 243, 244);
   --main-h-padding: 1.5rem;
   --main-v-padding: 1rem;
   --sticky-header-height: 60px;
-  --media-wide: 1279px;
 }
 
 .page-title {
