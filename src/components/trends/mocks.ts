@@ -18,14 +18,6 @@ export const mockTrends: ITrends[] = [
     tweets: randomTweet(),
   },
   {
-    name: 'JavaScript',
-    tweets: randomTweet(),
-  },
-  {
-    name: 'TypeScript',
-    tweets: randomTweet(),
-  },
-  {
     name: 'Scarface',
     tweets: randomTweet(),
   },

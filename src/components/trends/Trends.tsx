@@ -1,12 +1,22 @@
+import { Input } from '@mui/material';
+import { deepCopy } from '../../utils/deep-copy';
 import { ITrends, mockTrends } from './mocks';
 import styles from './Trends.module.scss';
 
 export default function Trends() {
-  const trends = JSON.parse(JSON.stringify(mockTrends)) as ITrends[];
+  const trends = deepCopy<ITrends[]>(mockTrends).sort(
+    (a, b) => b.tweets - a.tweets
+  );
+
   return (
     <div className={styles.trends}>
       <div className={styles.trends__container}>
-        <input placeholder="Search Twitter" />
+        <Input
+          placeholder="Search Twitter"
+          style={{
+            width: '100%',
+          }}
+        />
         <div className={styles.trends__list}>
           <h2 className={styles.trends__title}>Trends for you</h2>
           {trends.map(({ name, tweets }) => (
