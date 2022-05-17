@@ -1,0 +1,55 @@
+@import '../../assets//adaptive.scss';
+
+$general-padding: 1rem;
+
+.trends {
+  position: sticky;
+  top: 0;
+  left: 0;
+  border-left: 1px solid var(--border-color);
+  height: 100vh;
+}
+
+.trends__container {
+  padding: $general-padding;
+}
+
+.trends__list {
+  margin-top: 2rem;
+  background: var(--secondary-bg);
+  border-radius: 15px;
+}
+
+.trends__item {
+  padding: $general-padding;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.trends__title {
+  padding: $general-padding;
+  margin: 0;
+}
+
+.trends__name {
+  margin: 0.75rem 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.trends__numbers {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .trends {
+    display: none;
+  }
+}

@@ -1,0 +1,13 @@
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--white-bg);
+  height: var(--sticky-header-height);
+}
+
+.header__title {
+  padding: 1rem var(--main-h-padding);
+  margin: 0;
+}

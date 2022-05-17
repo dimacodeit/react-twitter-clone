@@ -11,20 +11,20 @@ export default function Navigation() {
   return (
     <>
       <Logo previewOnly={false} to="home" />
-      <NavButton icon={HomeOutlined} to="home" title="Home" />
-      <NavButton icon={TagOutlinedIcon} to="explore" title="Explore" />
+      <NavButton icon={HomeOutlined} to="home" label="Home" />
+      <NavButton icon={TagOutlinedIcon} to="explore" label="Explore" />
       <NavButton
         icon={NotificationsNoneOutlinedIcon}
         to="notifications"
-        title="Notifications"
+        label="Notifications"
       />
-      <NavButton icon={EmailOutlinedIcon} to="messages" title="Messages" />
+      <NavButton icon={EmailOutlinedIcon} to="messages" label="Messages" />
       <NavButton
         icon={BookmarkBorderOutlinedIcon}
         to="bookmarks"
-        title="Bookmarks"
+        label="Bookmarks"
       />
-      <NavButton icon={PersonOutlinedIcon} to="profile" title="Profile" />
+      <NavButton icon={PersonOutlinedIcon} to="profile" label="Profile" />
     </>
   );
 }
