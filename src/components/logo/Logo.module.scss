@@ -1,3 +1,5 @@
+@import '../../assets//adaptive.scss';
+
 .logo {
   width: 52px;
   height: 52px;
@@ -21,5 +23,11 @@
   &:focus {
     outline: 3px solid rgb(142, 205, 248);
     background: var(--primary-hover);
+  }
+}
+
+@media (max-width: $laptop-breakpoint) {
+  .logo__wrap {
+    margin: 0;
   }
 }
