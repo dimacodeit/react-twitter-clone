@@ -9,7 +9,7 @@ export function Views() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn) navigate('/login');
+    if (!isLoggedIn) navigate('/login', { replace: true });
   }, [isLoggedIn, navigate]);
 
   return (
