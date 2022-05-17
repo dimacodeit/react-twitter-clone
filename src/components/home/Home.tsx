@@ -17,6 +17,7 @@ export default function Home() {
     });
     setMocks(newMock);
   };
+
   return (
     <div className="page-layout">
       <div>
