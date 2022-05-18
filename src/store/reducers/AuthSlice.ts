@@ -1,11 +1,10 @@
 import { IAuthModel } from '@Models/auth.model';
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '@Store/store';
+import { lsGetItem } from '@Utils/ls-get-item';
 
 const initialState: IAuthModel = {
-  login: localStorage.getItem('authName')
-    ? localStorage.getItem('authName')
-    : null,
+  login: lsGetItem('authName', null),
 };
 
 export const authSlice = createSlice({
