@@ -25,8 +25,8 @@ export function SignupForm() {
       login: '',
     },
     validate,
-    onSubmit: () => {
-      dispatch(login());
+    onSubmit: (values) => {
+      dispatch(login(values.login));
       navigate('/home');
     },
   });

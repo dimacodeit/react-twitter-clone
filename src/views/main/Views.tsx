@@ -8,7 +8,7 @@ import { SignupForm } from '../login/Login';
 import Layout from './layout/Layout';
 
 export function Views() {
-  const { isLoggedIn } = useAppSelector((state) => state.authReducer);
+  const { login } = useAppSelector((state) => state.authReducer);
 
   useEffect(() => {
     const getTweets = async () => {
@@ -29,7 +29,7 @@ export function Views() {
       <Route
         path="/*"
         element={
-          <ProtectedRoute canLoad={isLoggedIn} redirectTo="login">
+          <ProtectedRoute canLoad={!!login} redirectTo="login">
             <Layout />
           </ProtectedRoute>
         }

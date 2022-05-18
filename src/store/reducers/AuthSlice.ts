@@ -3,22 +3,22 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '@Store/store';
 
 const initialState: IAuthModel = {
-  isLoggedIn: false,
+  login: null,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state) => {
-      state.isLoggedIn = true;
+    login: (state, { payload }) => {
+      state.login = payload;
     },
     logout: (state) => {
-      state.isLoggedIn = false;
+      state.login = null;
     },
   },
 });
 
 export const { login, logout } = authSlice.actions;
-export const selectAuth = (state: RootState) => state.authReducer.isLoggedIn;
+export const selectAuth = (state: RootState) => state.authReducer.login;
 export default authSlice.reducer;
