@@ -1,6 +1,6 @@
+import { IAuthModel } from '@Models/auth.model';
 import { createSlice } from '@reduxjs/toolkit';
-import { IAuthModel } from '../../models/auth.model';
-import { RootState } from '../store';
+import { RootState } from '@Store/store';
 
 const initialState: IAuthModel = {
   isLoggedIn: false,

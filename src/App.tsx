@@ -1,4 +1,4 @@
-import { Views } from './components/views/Views';
+import { Views } from './views';
 
 function App() {
   return <Views />;

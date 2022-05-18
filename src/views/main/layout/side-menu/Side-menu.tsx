@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
-import { useAppDispatch } from '../../../hooks/redux';
-import { authSlice } from '../../../store/reducers/AuthSlice';
+import { useAppDispatch } from '@Hooks/redux';
+import { authSlice } from '@Store/reducers/AuthSlice';
 import Navigation from '../navigation/Navigation';
 import styles from './Side-menu.module.scss';
 

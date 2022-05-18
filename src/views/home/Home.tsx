@@ -1,6 +1,6 @@
+import StickyHeader from '@Components/sticky-header/Sticky-header';
+import Trends from '@Components/trends/Trends';
 import { useState } from 'react';
-import StickyHeader from '../sticky-header/Sticky-header';
-import Trends from '../trends/Trends';
 import Card from './card/Card';
 import HomeHeader from './home-header/Home-header';
 import { MOCK_TWEETS } from './mocks';

@@ -4,7 +4,7 @@ import styles from './Login.module.scss';
 import { useAppDispatch } from '../../hooks/redux';
 import { authSlice } from '../../store/reducers/AuthSlice';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../logo/Logo';
+import Logo from '../../components/logo/Logo';
 
 type LoginForm = {
   login: string;

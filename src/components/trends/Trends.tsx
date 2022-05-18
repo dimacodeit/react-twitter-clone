@@ -1,5 +1,5 @@
 import { Input } from '@mui/material';
-import { deepCopy } from '../../utils/deep-copy';
+import { deepCopy } from '@Utils/deep-copy';
 import { ITrends, mockTrends } from './mocks';
 import styles from './Trends.module.scss';
 

@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@Views/*": [
+                "src/views/*"
+            ],
+            "@Store/*": [
+                "src/store/*"
+            ],
+            "@Hooks/*": [
+                "src/hooks/*"
+            ],
+            "@Utils/*": [
+                "src/utils/*"
+            ],
+            "@Models/*": [
+                "src/models/*"
+            ],
+            "@Assets/*": [
+                "src/assets/*"
+            ],
+            "@Components/*": [
+                "src/components/*"
+            ]
+        },
+    }
+}
