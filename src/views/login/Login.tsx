@@ -19,14 +19,15 @@ const validate = (values: LoginForm) => {
 export function SignupForm() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { login } = authSlice.actions;
+  const { signIn } = authSlice.actions;
   const formik = useFormik<LoginForm>({
     initialValues: {
       login: '',
     },
     validate,
     onSubmit: (values) => {
-      dispatch(login(values.login));
+      dispatch(signIn(values.login));
+      localStorage.setItem('authName', values.login);
       navigate('/home');
     },
   });
