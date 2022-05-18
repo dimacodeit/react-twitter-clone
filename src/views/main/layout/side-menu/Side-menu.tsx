@@ -6,9 +6,14 @@ import styles from './Side-menu.module.scss';
 
 export default function SideMenu() {
   const dispatch = useAppDispatch();
-  const { logout } = authSlice.actions;
-  // eslint-disable-next-line no-restricted-globals
-  const logoutHandler = () => confirm('Are you sure?') && dispatch(logout());
+  const { signOut } = authSlice.actions;
+  const logoutHandler = () => {
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm('Are you sure?')) {
+      dispatch(signOut());
+      localStorage.removeItem('authName');
+    }
+  };
   return (
     <div className={styles.menu}>
       <header className={styles.header}>

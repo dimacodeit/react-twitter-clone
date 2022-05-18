@@ -1,3 +1,3 @@
 export interface IAuthModel {
-  isLoggedIn: boolean;
+  login: string | null;
 }

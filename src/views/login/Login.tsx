@@ -1,10 +1,10 @@
 import { Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import styles from './Login.module.scss';
-import { useAppDispatch } from '../../hooks/redux';
-import { authSlice } from '../../store/reducers/AuthSlice';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../../components/logo/Logo';
+import Logo from '@Components/logo/Logo';
+import { useAppDispatch } from '@Hooks/redux';
+import { authSlice } from '@Store/reducers/AuthSlice';
 
 type LoginForm = {
   login: string;
@@ -19,14 +19,15 @@ const validate = (values: LoginForm) => {
 export function SignupForm() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { login } = authSlice.actions;
+  const { signIn } = authSlice.actions;
   const formik = useFormik<LoginForm>({
     initialValues: {
       login: '',
     },
     validate,
-    onSubmit: () => {
-      dispatch(login());
+    onSubmit: (values) => {
+      dispatch(signIn(values.login));
+      localStorage.setItem('authName', values.login);
       navigate('/home');
     },
   });
