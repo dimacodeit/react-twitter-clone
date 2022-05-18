@@ -5,7 +5,7 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import NavButton from '../nav-button/Nav-button';
-import Logo from '../../logo/Logo';
+import Logo from '@Components/logo/Logo';
 
 export default function Navigation() {
   return (

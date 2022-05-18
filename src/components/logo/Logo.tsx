@@ -1,5 +1,5 @@
 import styles from './Logo.module.scss';
-import svg from '../../assets/svg/logo.svg';
+import svg from '@Assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 
 export interface ILogoProps {

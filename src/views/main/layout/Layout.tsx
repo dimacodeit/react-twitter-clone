@@ -1,12 +1,12 @@
+import Bookmarks from '@Views/bookmarks/Bookmarks';
+import Explore from '@Views/explore/Explore';
+import Home from '@Views/home/Home';
+import Messages from '@Views/messages/Messages';
+import Notifications from '@Views/notifications/Notifications';
+import Profile from '@Views/profile/Profile';
 import { useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import Bookmarks from '../bookmarks/Bookmarks';
-import Explore from '../explore/Explore';
-import Home from '../home/Home';
-import Messages from '../messages/Messages';
-import Notifications from '../notifications/Notifications';
-import Profile from '../profile/Profile';
-import styles from './Main-layout.module.scss';
+import styles from './Layout.module.scss';
 import SideMenu from './side-menu/Side-menu';
 
 export default function Layout() {

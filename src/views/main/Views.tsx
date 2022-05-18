@@ -4,7 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase-config';
 import { useAppSelector } from '../../hooks/redux';
 import { SignupForm } from '../login/Login';
-import Layout from '../main-layout/Main-layout';
+import Layout from './layout/Layout';
 
 export function Views() {
   const { isLoggedIn } = useAppSelector((state) => state.authReducer);

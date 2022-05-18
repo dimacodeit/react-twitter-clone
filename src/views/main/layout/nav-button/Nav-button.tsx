@@ -1,4 +1,3 @@
-import React from 'react';
 import { SvgIconComponent } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import styles from './Nav-button.module.scss';
