@@ -11,8 +11,17 @@ import { ITweet } from './models/tweet';
 export default function Home() {
   const { login } = useAppSelector((state) => state.authReducer);
   const [tweets, setTweets] = useState<ITweet[]>([]);
-  const firestore = useMemo(() => new FirestoreService('tweets'), []);
   const [loading, setLoading] = useState(true);
+  const firestore = useMemo(() => new FirestoreService('tweets'), []);
+
+  const getTweets = useMemo(() => {
+    return () => {
+      firestore.getData<ITweet>().then((res) => {
+        setTweets(res);
+        setLoading(false);
+      });
+    };
+  }, [firestore]);
 
   const tweetHandler = (text: string) => {
     if (login && typeof login === 'string') {
@@ -25,15 +34,6 @@ export default function Home() {
         .then(() => getTweets());
     }
   };
-
-  const getTweets = useMemo(() => {
-    return () => {
-      firestore.getData<ITweet>().then((res) => {
-        setTweets(res);
-        setLoading(false);
-      });
-    };
-  }, [firestore]);
 
   useEffect(() => {
     getTweets();
