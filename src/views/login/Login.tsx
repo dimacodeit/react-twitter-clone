@@ -1,10 +1,10 @@
 import { Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import styles from './Login.module.scss';
-import { useAppDispatch } from '../../hooks/redux';
-import { authSlice } from '../../store/reducers/AuthSlice';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../../components/logo/Logo';
+import Logo from '@Components/logo/Logo';
+import { useAppDispatch } from '@Hooks/redux';
+import { authSlice } from '@Store/reducers/AuthSlice';
 
 type LoginForm = {
   login: string;

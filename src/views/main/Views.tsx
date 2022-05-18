@@ -1,6 +1,7 @@
+import ProtectedRoute from '@Components/protected-route/Protected-route';
 import { collection, getDocs } from 'firebase/firestore';
 import { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { db } from '../../firebase-config';
 import { useAppSelector } from '../../hooks/redux';
 import { SignupForm } from '../login/Login';
@@ -8,7 +9,6 @@ import Layout from './layout/Layout';
 
 export function Views() {
   const { isLoggedIn } = useAppSelector((state) => state.authReducer);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const getTweets = async () => {
@@ -24,13 +24,16 @@ export function Views() {
     getTweets();
   }, []);
 
-  useEffect(() => {
-    if (!isLoggedIn) navigate('/login', { replace: true });
-  }, [isLoggedIn, navigate]);
-
   return (
     <Routes>
-      {isLoggedIn && <Route path="/*" element={<Layout />} />}
+      <Route
+        path="/*"
+        element={
+          <ProtectedRoute canLoad={isLoggedIn} redirectTo="login">
+            <Layout />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/login" element={<SignupForm />} />
     </Routes>
   );
