@@ -11,7 +11,9 @@ export default function TweetCard({ tweet, isFirst }: ITweetCardProp) {
     <div className={`${styles.card} ${isFirst ? styles.first : ''}`}>
       <h3>{tweet.name}</h3>
       <p>{tweet.text}</p>
-      <span>{new Date(tweet.date).toDateString()}</span>
+      <span>{`${tweet.date.toDate().toDateString()} ${tweet.date
+        .toDate()
+        .toLocaleTimeString()}`}</span>
     </div>
   );
 }
