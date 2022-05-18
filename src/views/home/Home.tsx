@@ -1,21 +1,25 @@
 import StickyHeader from '@Components/sticky-header/Sticky-header';
 import Trends from '@Components/trends/Trends';
+import { useAppSelector } from '@Hooks/redux';
 import { useState } from 'react';
 import Card from './card/Card';
 import HomeHeader from './home-header/Home-header';
 import { MOCK_TWEETS } from './mocks';
 
 export default function Home() {
+  const { login } = useAppSelector((state) => state.authReducer);
   const [mocks, setMocks] = useState([...MOCK_TWEETS]);
   const tweetHandler = (text: string) => {
-    const newMock = [...mocks];
-    newMock.unshift({
-      name: 'Tweet',
-      text,
-      date: new Date().toString(),
-      id: Math.random(),
-    });
-    setMocks(newMock);
+    if (login && typeof login === 'string') {
+      const newMock = [...mocks];
+      newMock.unshift({
+        name: login,
+        text,
+        date: new Date().toString(),
+        id: Math.random(),
+      });
+      setMocks(newMock);
+    }
   };
 
   return (

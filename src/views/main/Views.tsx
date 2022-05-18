@@ -1,9 +1,9 @@
 import ProtectedRoute from '@Components/protected-route/Protected-route';
+import { useAppSelector } from '@Hooks/redux';
 import { collection, getDocs } from 'firebase/firestore';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { db } from '../../firebase-config';
-import { useAppSelector } from '../../hooks/redux';
 import { SignupForm } from '../login/Login';
 import Layout from './layout/Layout';
 
