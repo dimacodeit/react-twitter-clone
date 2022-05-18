@@ -1,4 +1,4 @@
-import { IAuthModel } from '@Models/auth.model';
+import { IAuthModel } from '@Models/auth';
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '@Store/store';
 import { lsGetItem } from '@Utils/ls-get-item';

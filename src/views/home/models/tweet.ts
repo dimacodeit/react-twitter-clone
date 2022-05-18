@@ -1,7 +1,9 @@
+import { Timestamp } from 'firebase/firestore';
+
 export interface ITweet {
   //icon - todo
-  id: number | string;
-  name: string; //taken from login
+  id: string;
+  name: string;
   text: string;
-  date: string;
+  date: Timestamp;
 }
