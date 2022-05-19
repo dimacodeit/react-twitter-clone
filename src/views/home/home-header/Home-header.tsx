@@ -42,7 +42,7 @@ export default function HomeHeader(props: IHomeHeaderProps) {
         {textLength >= 240 && (
           <div
             className={`${styles.header__symbols} ${
-              textLength >= 280 ? styles.red__label : ''
+              textLength > 280 ? styles.red__label : ''
             }`}
           >
             {textLength}
