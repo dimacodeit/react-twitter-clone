@@ -35,7 +35,7 @@ export default function HomeHeader(props: IHomeHeaderProps) {
         <Button
           variant="contained"
           onClick={tweet}
-          disabled={!textLength || textLength > 279}
+          disabled={!textLength || textLength > 280}
         >
           Tweet
         </Button>
