@@ -56,3 +56,29 @@
     margin: 0;
   }
 }
+
+@media (max-width: $mobile-l-breakpoint) {
+  .button {
+    font-size: 0.75rem;
+    line-height: 1.15rem;
+    padding: 0.25rem 0.75rem;
+  }
+  .button__icon {
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 0.25rem;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .button {
+    font-size: 0.6rem;
+    line-height: 1rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .button__icon {
+    width: 25px !important;
+    height: 25px !important;
+    margin-right: 0.15rem;
+  }
+}

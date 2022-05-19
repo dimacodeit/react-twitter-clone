@@ -10,20 +10,22 @@ import SideMenu from './side-menu/Side-menu';
 
 export default function Layout() {
   return (
-    <div className={styles.layout}>
-      <SideMenu />
-      <main className={styles.main}>
-        <Routes>
-          <Route path="/" element={<Navigate to="home" />} />
-          <Route path="home" element={<Home />} />
-          <Route path="explore" element={<Explore />} />
-          <Route path="notifications" element={<Notifications />} />
-          <Route path="messages" element={<Messages />} />
-          <Route path="bookmarks" element={<Bookmarks />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="*" element={<Navigate to="home" />} />
-        </Routes>
-      </main>
+    <div className={styles.wrapper}>
+      <div className={styles.layout}>
+        <SideMenu />
+        <main className={styles.main}>
+          <Routes>
+            <Route path="/" element={<Navigate to="home" />} />
+            <Route path="home" element={<Home />} />
+            <Route path="explore" element={<Explore />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="bookmarks" element={<Bookmarks />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="*" element={<Navigate to="home" />} />
+          </Routes>
+        </main>
+      </div>
     </div>
   );
 }

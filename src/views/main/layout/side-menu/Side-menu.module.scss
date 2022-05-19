@@ -38,3 +38,25 @@
     padding-left: 0.75rem;
   }
 }
+
+@media (max-width: $mobile-l-breakpoint) {
+  .menu {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .nav {
+    width: 60px;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .menu {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+  }
+
+  .nav {
+    width: 45px;
+  }
+}

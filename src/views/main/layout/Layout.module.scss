@@ -1,23 +1,35 @@
 @import '../../../styles/adaptive.scss';
 
+.layout {
+  display: grid;
+  grid-template-columns: 300px auto;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
 .main {
   border: 1px solid var(--border-color);
 }
 
-.layout {
-  display: grid;
-  grid-template-columns: 450px auto;
-  height: 100%;
-}
-
 @media (max-width: $laptop-l-breakpoint) {
   .layout {
-    grid-template-columns: minmax(100px, 0.4fr) 1fr;
+    grid-template-columns: minmax(250px, 0.7fr) auto;
   }
 }
 
 @media (max-width: $laptop-breakpoint) {
   .layout {
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: $mobile-l-breakpoint) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
   }
 }

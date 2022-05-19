@@ -1,8 +1,34 @@
+@import '../../../styles/adaptive.scss';
+
 .card {
   border-bottom: 1px solid var(--border-color);
   padding: var(--main-v-padding) var(--main-h-padding);
+  max-width: 600px;
+  word-wrap: break-word;
+  font-size: 1rem;
 
   &.first {
     border-top: 1px solid var(--border-color);
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .card {
+    font-size: 0.75rem;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: $mobile-l-breakpoint) {
+  .card {
+    font-size: 0.75rem;
+    max-width: 330px;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .card {
+    font-size: 0.7rem;
+    max-width: 250px;
   }
 }
