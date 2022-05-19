@@ -7,20 +7,19 @@ export interface IHomeHeaderProps {
 }
 
 export default function HomeHeader(props: IHomeHeaderProps) {
-  const [isTextEmpty, setIsTextEmpty] = useState(true);
+  const [textLength, setTextLength] = useState(0);
   const textRef = useRef() as React.MutableRefObject<HTMLTextAreaElement>;
   const onChangeHandler = (e: SyntheticEvent) => {
     const target = e.target as HTMLTextAreaElement;
     textRef.current.style.height = '30px';
     textRef.current.style.height = `${target.scrollHeight}px`;
-
-    if (!target.value) setIsTextEmpty(true);
-    if (target.value && isTextEmpty) setIsTextEmpty(false);
+    setTextLength(target.value.length);
   };
   const tweet = () => {
     props.tweetHandler(textRef.current.value);
     textRef.current.value = '';
-    setIsTextEmpty(true);
+    textRef.current.style.height = '30px';
+    setTextLength(0);
   };
 
   return (
@@ -31,9 +30,25 @@ export default function HomeHeader(props: IHomeHeaderProps) {
         onChange={onChangeHandler}
         ref={textRef}
       ></textarea>
-      <Button variant="contained" onClick={tweet} disabled={isTextEmpty}>
-        Tweet
-      </Button>
+
+      <div className={styles.button__container}>
+        <Button
+          variant="contained"
+          onClick={tweet}
+          disabled={!textLength || textLength > 279}
+        >
+          Tweet
+        </Button>
+        {textLength >= 240 && (
+          <div
+            className={`${styles.header__symbols} ${
+              textLength >= 280 ? styles.red__label : ''
+            }`}
+          >
+            {textLength}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
