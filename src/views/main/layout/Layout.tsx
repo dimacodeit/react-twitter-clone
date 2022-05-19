@@ -13,7 +13,7 @@ export default function Layout() {
     <div className={styles.wrapper}>
       <div className={styles.layout}>
         <SideMenu />
-        <main className={styles.main}>
+        <main className={`${styles.main} page-layout`}>
           <Routes>
             <Route path="/" element={<Navigate to="home" />} />
             <Route path="home" element={<Home />} />
