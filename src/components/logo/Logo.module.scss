@@ -31,3 +31,27 @@
     margin: 0;
   }
 }
+
+@media (max-width: $mobile-l-breakpoint) {
+  .logo__hover {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .logo__hover {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
+}
