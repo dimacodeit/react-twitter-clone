@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <div className="page-layout">
-      <div>
+      <div style={{ borderRight: '1px solid var(--border-color)' }}>
         <StickyHeader header="Home" />
         <HomeHeader tweetHandler={tweetHandler} />
         {loading ? (
