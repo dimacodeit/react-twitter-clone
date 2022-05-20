@@ -5,9 +5,7 @@ import ExploreHeader from './header/Explore-header';
 import { IArticleModel, News } from './models/news';
 import ArticleCard from './news-card/Article-card';
 
-export interface IExploreProps {}
-
-export default function Explore(props: IExploreProps) {
+export default function Explore() {
   const [news, setNews] = useState<IArticleModel[]>([]);
 
   useEffect(() => {
