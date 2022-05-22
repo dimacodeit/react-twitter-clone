@@ -19,8 +19,8 @@ export default function Trends() {
         />
         <div className={styles.trends__list}>
           <h2 className={styles.trends__title}>Trends for you</h2>
-          {trends.map(({ name, tweets }) => (
-            <div className={styles.trends__item} key={tweets + Math.random()}>
+          {trends.map(({ name, tweets, id }) => (
+            <div className={styles.trends__item} key={id}>
               <h4 className={styles.trends__name}>{name}</h4>
               <span className={styles.trends__numbers}>{tweets} Tweets</span>
             </div>
