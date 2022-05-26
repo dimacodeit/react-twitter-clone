@@ -1,9 +1,5 @@
-export interface IExploreHeaderProps {}
+import styles from './Expore-header.module.scss';
 
-export default function ExploreHeader(props: IExploreHeaderProps) {
-  return (
-    <div>
-      <h2>What's happening</h2>
-    </div>
-  );
+export default function ExploreHeader() {
+  return <h2 className={styles.header}>What's happening</h2>;
 }

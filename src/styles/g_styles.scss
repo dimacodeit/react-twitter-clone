@@ -15,6 +15,7 @@ html {
   --gray-bg: rgba(0, 0, 0, 0.4);
   --secondary-bg: rgb(247, 249, 249);
   --white-bg: white;
+  --main-hover: rgba(0, 0, 0, 0.03);
   --gray-hover: rgba(15, 20, 25, 0.1);
   --primary: rgb(29, 155, 240);
   --secondary: rgb(83, 100, 113);
@@ -32,6 +33,10 @@ html {
 .page-layout {
   display: grid;
   grid-template-columns: minmax(auto, 600px) minmax(330px, 0.6fr);
+}
+
+.g-border-right {
+  border-right: 1px solid var(--border-color);
 }
 
 @media (max-width: $laptop-l-breakpoint) {

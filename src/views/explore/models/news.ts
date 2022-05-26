@@ -1,17 +1,7 @@
-export interface IArticleModel {
-  source: Source;
-  publishedAt: string | Date;
-  urlToImage: string;
+export interface IPost {
+  body: string;
+  id: number;
   title: string;
-  description: string;
-  url: string;
 }
 
-export type Source = {
-  id: string;
-  name: string;
-};
-
-export type News = {
-  articles: IArticleModel[];
-};
+export type Posts = IPost[];

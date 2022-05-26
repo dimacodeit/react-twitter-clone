@@ -21,7 +21,7 @@ $general-padding: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
   &:hover {
-    background: rgba(0, 0, 0, 0.03);
+    background: var(--main-hover);
   }
 
   &:not(:last-child) {
