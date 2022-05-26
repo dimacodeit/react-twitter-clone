@@ -39,7 +39,7 @@ export default function Home() {
 
   return (
     <>
-      <div style={{ borderRight: '1px solid var(--border-color)' }}>
+      <div className="g-border-right">
         <StickyHeader header="Home" />
         <HomeHeader tweetHandler={tweetHandler} />
         {loading ? (

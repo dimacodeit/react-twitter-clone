@@ -2,29 +2,36 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Trends from '@Components/trends/Trends';
 import ExploreHeader from './header/Explore-header';
-import { IArticleModel, News } from './models/news';
-import ArticleCard from './news-card/Article-card';
+import { IPost, Posts } from './models/news';
+import PostCard from './news-card/Article-card';
+
+function duplicate<T>(times: number, data: T[]): T[] {
+  let newData: T[] = [];
+  for (let i = 0; i < times; i++) {
+    newData = newData.concat(data);
+  }
+  return newData;
+}
 
 export default function Explore() {
-  const [news, setNews] = useState<IArticleModel[]>([]);
+  const [news, setNews] = useState<Posts>([]);
 
   useEffect(() => {
     axios
-      .get<News>(
-        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
-      )
-      .then(({ data }) => setNews(data.articles));
+      .get<Posts>(`https://jsonplaceholder.typicode.com/posts`)
+      .then(({ data }) => {
+        const duplicates = duplicate<IPost>(5, data);
+        console.log(duplicates);
+        setNews(duplicates);
+      });
   }, []);
 
   return (
     <>
-      <div>
+      <div className="g-border-right">
         <ExploreHeader />
-        {news.map((article) => (
-          <ArticleCard
-            key={article.publishedAt.toString() + article.source.id}
-            article={article}
-          />
+        {news.map((post, index) => (
+          <PostCard key={index} post={post} />
         ))}
       </div>
       <Trends />

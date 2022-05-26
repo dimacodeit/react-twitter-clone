@@ -1,22 +1,16 @@
-import { IArticleModel } from '../models/news';
+import { IPost } from '../models/news';
 
 import styles from './Article.module.scss';
 
-export interface IArticleCardProps {
-  article: IArticleModel;
+export interface IPostCardProps {
+  post: IPost;
 }
 
-export default function ArticleCard({ article }: IArticleCardProps) {
+export default function PostCard({ post }: IPostCardProps) {
   return (
-    <div>
-      <h3>{article.title}</h3>
-      <p>{article.description}</p>
-      <img
-        className={styles.article__img}
-        src={article.urlToImage}
-        alt={article.source.name}
-      />
-      <span>{new Date(article.publishedAt).toDateString()}</span>
+    <div className={styles.card}>
+      <h3>{post.title}</h3>
+      <p>{post.body}</p>
     </div>
   );
 }

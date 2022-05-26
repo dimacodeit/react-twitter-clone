@@ -1,4 +1,7 @@
-.article__img {
-  width: 100px;
-  height: 100px;
+.card {
+  padding: 1rem var(--main-h-padding);
+
+  &:hover {
+    background: var(--main-hover);
+  }
 }

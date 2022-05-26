@@ -10,6 +10,10 @@
   &.first {
     border-top: 1px solid var(--border-color);
   }
+
+  &:hover {
+    background: var(--main-hover);
+  }
 }
 
 @media (max-width: $tablet-breakpoint) {
