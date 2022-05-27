@@ -1,15 +1,14 @@
 import { Button } from '@mui/material';
 import { useAppDispatch } from '@Hooks/redux';
-import { authSlice } from '@Store/reducers/AuthSlice';
 import Navigation from '../navigation/Navigation';
 import styles from './Side-menu.module.scss';
 import ConfirmDialog from '@Components/confirm-dialog/Confirm-dialog';
 import { useState } from 'react';
+import { signOut } from '@Store/reducers/AuthSlice';
 
 export default function SideMenu() {
   const [isOpen, setOpen] = useState(false);
   const dispatch = useAppDispatch();
-  const { signOut } = authSlice.actions;
 
   const confirmLogout = () => {
     dispatch(signOut());

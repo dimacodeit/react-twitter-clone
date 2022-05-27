@@ -1,6 +1,5 @@
 import { IAuthModel } from '@Models/auth';
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '@Store/store';
 import { lsGetItem } from '@Utils/ls-get-item';
 
 const initialState: IAuthModel = {
@@ -21,5 +20,4 @@ export const authSlice = createSlice({
 });
 
 export const { signIn, signOut } = authSlice.actions;
-export const selectAuth = (state: RootState) => state.authReducer.login;
 export default authSlice.reducer;
