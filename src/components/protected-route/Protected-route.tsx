@@ -1,16 +1,18 @@
+import { FunctionComponent } from 'react';
 import { Navigate } from 'react-router';
-
-export interface IProtectedRouteProps {
+interface ProtectedRouteProps {
   children: JSX.Element;
   canLoad: boolean;
   redirectTo: string;
 }
 
-export default function ProtectedRoute({
+const ProtectedRoute: FunctionComponent<ProtectedRouteProps> = ({
   children,
   canLoad,
   redirectTo,
-}: IProtectedRouteProps) {
+}: ProtectedRouteProps) => {
   if (canLoad) return children;
   return <Navigate to={redirectTo} replace />;
-}
+};
+
+export default ProtectedRoute;

@@ -1,14 +1,15 @@
 import styles from './Logo.module.scss';
 import svg from '@Assets/images/logo.svg';
 import { Link } from 'react-router-dom';
+import { FunctionComponent } from 'react';
 
-export interface ILogoProps {
+interface LogoProps {
   to?: string;
   previewOnly: boolean;
   className?: string;
 }
 
-export default function Logo(props: ILogoProps) {
+const Logo: FunctionComponent<LogoProps> = (props: LogoProps) => {
   if (props.previewOnly)
     return <img className={styles.logo} src={svg} alt="twitter logo" />;
 
@@ -22,4 +23,6 @@ export default function Logo(props: ILogoProps) {
     );
 
   return <div>There is no such pattern</div>;
-}
+};
+
+export default Logo;

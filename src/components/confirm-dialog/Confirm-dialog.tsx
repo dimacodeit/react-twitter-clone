@@ -6,8 +6,9 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
+import { FunctionComponent } from 'react';
 
-export interface IConfirmDialogProps {
+interface ConfirmDialogProps {
   isOpen: boolean;
   titleText: string;
   bodyText?: string;
@@ -15,7 +16,9 @@ export interface IConfirmDialogProps {
   onReject: () => void;
 }
 
-export default function ConfirmDialog(props: IConfirmDialogProps) {
+const ConfirmDialog: FunctionComponent<ConfirmDialogProps> = (
+  props: ConfirmDialogProps
+) => {
   return (
     <Dialog open={props.isOpen}>
       <DialogTitle>{props.titleText}</DialogTitle>
@@ -30,4 +33,6 @@ export default function ConfirmDialog(props: IConfirmDialogProps) {
       </DialogActions>
     </Dialog>
   );
-}
+};
+
+export default ConfirmDialog;

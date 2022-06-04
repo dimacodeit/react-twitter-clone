@@ -1,13 +1,18 @@
+import { FunctionComponent } from 'react';
 import styles from './Sticky-header.module.scss';
 
-export interface IStickyHeaderProps {
+interface StickyHeaderProps {
   header: string;
 }
 
-export default function StickyHeader(props: IStickyHeaderProps) {
+const StickyHeader: FunctionComponent<StickyHeaderProps> = (
+  props: StickyHeaderProps
+) => {
   return (
     <div className={styles.header}>
       <h2 className={styles.header__title}>{props.header}</h2>
     </div>
   );
-}
+};
+
+export default StickyHeader;
