@@ -16,6 +16,10 @@
   }
 }
 
+.card__text {
+  white-space: pre-wrap;
+}
+
 @media (max-width: $tablet-breakpoint) {
   .card {
     font-size: 0.75rem;
