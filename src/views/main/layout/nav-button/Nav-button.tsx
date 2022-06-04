@@ -15,15 +15,13 @@ const NavButton: FunctionComponent<NavButtonProps> = ({
   icon: Icon,
   to,
   label,
-}: NavButtonProps) => {
-  return (
-    <Link tabIndex={-1} className={styles.link} to={to}>
-      <button className={styles.button}>
-        <Icon className={styles.button__icon} />
-        <label className={styles.button__label}>{label}</label>
-      </button>
-    </Link>
-  );
-};
+}: NavButtonProps) => (
+  <Link tabIndex={-1} className={styles.link} to={to}>
+    <button className={styles.button}>
+      <Icon className={styles.button__icon} />
+      <label className={styles.button__label}>{label}</label>
+    </button>
+  </Link>
+);
 
 export default NavButton;

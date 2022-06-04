@@ -8,26 +8,24 @@ import NavButton from '../nav-button/Nav-button';
 import Logo from '@Components/logo/Logo';
 import { FunctionComponent } from 'react';
 
-const Navigation: FunctionComponent = () => {
-  return (
-    <>
-      <Logo previewOnly={false} to="home" />
-      <NavButton icon={HomeOutlined} to="home" label="Home" />
-      <NavButton icon={TagOutlinedIcon} to="explore" label="Explore" />
-      <NavButton
-        icon={NotificationsNoneOutlinedIcon}
-        to="notifications"
-        label="Notifications"
-      />
-      <NavButton icon={EmailOutlinedIcon} to="messages" label="Messages" />
-      <NavButton
-        icon={BookmarkBorderOutlinedIcon}
-        to="bookmarks"
-        label="Bookmarks"
-      />
-      <NavButton icon={PersonOutlinedIcon} to="profile" label="Profile" />
-    </>
-  );
-};
+const Navigation: FunctionComponent = () => (
+  <>
+    <Logo previewOnly={false} to="home" />
+    <NavButton icon={HomeOutlined} to="home" label="Home" />
+    <NavButton icon={TagOutlinedIcon} to="explore" label="Explore" />
+    <NavButton
+      icon={NotificationsNoneOutlinedIcon}
+      to="notifications"
+      label="Notifications"
+    />
+    <NavButton icon={EmailOutlinedIcon} to="messages" label="Messages" />
+    <NavButton
+      icon={BookmarkBorderOutlinedIcon}
+      to="bookmarks"
+      label="Bookmarks"
+    />
+    <NavButton icon={PersonOutlinedIcon} to="profile" label="Profile" />
+  </>
+);
 
 export default Navigation;

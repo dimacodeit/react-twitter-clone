@@ -8,13 +8,11 @@ interface PostCardProps {
 
 const PostCard: FunctionComponent<PostCardProps> = ({
   post,
-}: PostCardProps) => {
-  return (
-    <div className={styles.card}>
-      <h3>{post.title}</h3>
-      <p>{post.body}</p>
-    </div>
-  );
-};
+}: PostCardProps) => (
+  <div className={styles.card}>
+    <h3>{post.title}</h3>
+    <p>{post.body}</p>
+  </div>
+);
 
 export default PostCard;

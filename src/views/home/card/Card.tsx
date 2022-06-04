@@ -10,16 +10,14 @@ interface TweetCardProps {
 const TweetCard: FunctionComponent<TweetCardProps> = ({
   tweet,
   isFirst,
-}: TweetCardProps) => {
-  return (
-    <div className={`${styles.card} ${isFirst ? styles.first : ''}`}>
-      <h3>{tweet.name}</h3>
-      <p>{tweet.text}</p>
-      <span>{`${tweet.date.toDate().toDateString()} ${tweet.date
-        .toDate()
-        .toLocaleTimeString()}`}</span>
-    </div>
-  );
-};
+}: TweetCardProps) => (
+  <div className={`${styles.card} ${isFirst ? styles.first : ''}`}>
+    <h3>{tweet.name}</h3>
+    <p>{tweet.text}</p>
+    <span>{`${tweet.date.toDate().toDateString()} ${tweet.date
+      .toDate()
+      .toLocaleTimeString()}`}</span>
+  </div>
+);
 
 export default TweetCard;
