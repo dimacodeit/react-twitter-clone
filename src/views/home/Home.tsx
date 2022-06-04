@@ -3,12 +3,12 @@ import Trends from '@Components/trends/Trends';
 import { useAppSelector } from '@Hooks/redux';
 import { addData, getData } from '@Utils/firestore-methods';
 import { Timestamp } from 'firebase/firestore';
-import { useEffect, useMemo, useState } from 'react';
+import { FunctionComponent, useEffect, useMemo, useState } from 'react';
 import Card from './card/Card';
 import HomeHeader from './home-header/Home-header';
 import { ITweet } from './models/tweet';
 
-export default function Home() {
+const Home: FunctionComponent = () => {
   const colName = 'tweets';
   const { login } = useAppSelector((state) => state.authReducer);
   const [tweets, setTweets] = useState<ITweet[]>([]);
@@ -53,4 +53,6 @@ export default function Home() {
       <Trends />
     </>
   );
-}
+};
+
+export default Home;

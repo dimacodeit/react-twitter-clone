@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { FunctionComponent, useCallback, useEffect } from 'react';
 import axios from 'axios';
 import Trends from '@Components/trends/Trends';
 import ExploreHeader from './header/Explore-header';
@@ -15,7 +15,7 @@ function duplicate<T>(times: number, data: T[]): T[] {
   return newData;
 }
 
-export default function Explore() {
+const Explore: FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const { isLoaded, news } = useAppSelector((state) => state.newsReducer);
   const loadNews = useCallback(() => {
@@ -42,4 +42,6 @@ export default function Explore() {
       <Trends />
     </>
   );
-}
+};
+
+export default Explore;

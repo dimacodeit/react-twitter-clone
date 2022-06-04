@@ -1,6 +1,6 @@
+import { FunctionComponent } from 'react';
 import { Views } from './views';
 
-function App() {
-  return <Views />;
-}
+const App: FunctionComponent = () => <Views />;
+
 export default App;

@@ -6,8 +6,9 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import NavButton from '../nav-button/Nav-button';
 import Logo from '@Components/logo/Logo';
+import { FunctionComponent } from 'react';
 
-export default function Navigation() {
+const Navigation: FunctionComponent = () => {
   return (
     <>
       <Logo previewOnly={false} to="home" />
@@ -27,4 +28,6 @@ export default function Navigation() {
       <NavButton icon={PersonOutlinedIcon} to="profile" label="Profile" />
     </>
   );
-}
+};
+
+export default Navigation;

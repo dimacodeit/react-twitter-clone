@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '@Components/logo/Logo';
 import { useAppDispatch } from '@Hooks/redux';
 import { signIn } from '@Store/reducers/AuthSlice';
+import { FunctionComponent } from 'react';
 
 type LoginForm = {
   login: string;
@@ -16,7 +17,7 @@ const validate = (values: LoginForm) => {
   return errors;
 };
 
-export function SignupForm() {
+const SignupForm: FunctionComponent = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const formik = useFormik<LoginForm>({
@@ -60,4 +61,6 @@ export function SignupForm() {
       </form>
     </div>
   );
-}
+};
+
+export default SignupForm;

@@ -1,5 +1,5 @@
-export interface IMessagesProps {}
+import { FunctionComponent } from 'react';
 
-export default function Messages(props: IMessagesProps) {
-  return <h1>Messages</h1>;
-}
+const Messages: FunctionComponent = () => <h1>Messages</h1>;
+
+export default Messages;

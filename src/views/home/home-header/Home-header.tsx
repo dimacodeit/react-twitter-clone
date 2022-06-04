@@ -1,12 +1,19 @@
 import { Button } from '@mui/material';
-import React, { SyntheticEvent, useRef, useState } from 'react';
+import React, {
+  FunctionComponent,
+  SyntheticEvent,
+  useRef,
+  useState,
+} from 'react';
 import styles from './Home-header.module.scss';
 
-export interface IHomeHeaderProps {
+interface HomeHeaderProps {
   tweetHandler: Function;
 }
 
-export default function HomeHeader(props: IHomeHeaderProps) {
+const HomeHeader: FunctionComponent<HomeHeaderProps> = (
+  props: HomeHeaderProps
+) => {
   const [textLength, setTextLength] = useState(0);
   const textRef = useRef() as React.MutableRefObject<HTMLTextAreaElement>;
 
@@ -60,4 +67,6 @@ export default function HomeHeader(props: IHomeHeaderProps) {
       </div>
     </div>
   );
-}
+};
+
+export default HomeHeader;
