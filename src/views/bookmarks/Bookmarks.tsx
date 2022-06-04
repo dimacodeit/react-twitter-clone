@@ -1,5 +1,7 @@
-export interface IBookmarksProps {}
+import { FunctionComponent } from 'react';
 
-export default function Bookmarks(props: IBookmarksProps) {
-  return <h1>Bookmarks</h1>;
-}
+interface BookmarksProps {}
+
+const Bookmarks: FunctionComponent<BookmarksProps> = () => <h1>Bookmarks</h1>;
+
+export default Bookmarks;

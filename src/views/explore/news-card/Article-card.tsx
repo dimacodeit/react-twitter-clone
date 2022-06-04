@@ -1,16 +1,18 @@
+import { FunctionComponent } from 'react';
 import { IPost } from '../models/news';
-
 import styles from './Article.module.scss';
 
-export interface IPostCardProps {
+interface PostCardProps {
   post: IPost;
 }
 
-export default function PostCard({ post }: IPostCardProps) {
-  return (
-    <div className={styles.card}>
-      <h3>{post.title}</h3>
-      <p>{post.body}</p>
-    </div>
-  );
-}
+const PostCard: FunctionComponent<PostCardProps> = ({
+  post,
+}: PostCardProps) => (
+  <div className={styles.card}>
+    <h3>{post.title}</h3>
+    <p>{post.body}</p>
+  </div>
+);
+
+export default PostCard;

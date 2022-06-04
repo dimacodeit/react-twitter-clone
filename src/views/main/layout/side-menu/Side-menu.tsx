@@ -3,10 +3,10 @@ import { useAppDispatch } from '@Hooks/redux';
 import Navigation from '../navigation/Navigation';
 import styles from './Side-menu.module.scss';
 import ConfirmDialog from '@Components/confirm-dialog/Confirm-dialog';
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { signOut } from '@Store/reducers/AuthSlice';
 
-export default function SideMenu() {
+const SideMenu: FunctionComponent = () => {
   const [isOpen, setOpen] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -31,4 +31,6 @@ export default function SideMenu() {
       />
     </div>
   );
-}
+};
+
+export default SideMenu;

@@ -1,5 +1,5 @@
-export interface IProfileProps {}
+import { FunctionComponent } from 'react';
 
-export default function Profile(props: IProfileProps) {
-  return <h1>Profile</h1>;
-}
+const Profile: FunctionComponent = () => <h1>Profile</h1>;
+
+export default Profile;

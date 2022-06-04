@@ -1,9 +1,12 @@
 import { Input } from '@mui/material';
 import { deepCopy } from '@Utils/deep-copy';
+import { FunctionComponent } from 'react';
 import { ITrends, mockTrends } from './mocks';
 import styles from './Trends.module.scss';
 
-export default function Trends() {
+interface TrendsProps {}
+
+const Trends: FunctionComponent<TrendsProps> = () => {
   const trends = deepCopy<ITrends[]>(mockTrends).sort(
     (a, b) => b.tweets - a.tweets
   );
@@ -29,4 +32,6 @@ export default function Trends() {
       </div>
     </div>
   );
-}
+};
+
+export default Trends;
