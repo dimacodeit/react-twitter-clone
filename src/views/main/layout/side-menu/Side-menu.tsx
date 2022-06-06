@@ -5,9 +5,11 @@ import styles from './Side-menu.module.scss';
 import ConfirmDialog from '@Components/confirm-dialog/Confirm-dialog';
 import { FunctionComponent, useState } from 'react';
 import { signOut } from '@Store/reducers/AuthSlice';
+import TweetDialog from '@Components/tweet-dialog/Tweet-dialog';
 
 const SideMenu: FunctionComponent = () => {
   const [isOpen, setOpen] = useState(false);
+  const [tweetOpen, setTweetOpen] = useState(false);
   const dispatch = useAppDispatch();
 
   const confirmLogout = () => {
@@ -20,6 +22,7 @@ const SideMenu: FunctionComponent = () => {
       <header className={styles.header}>
         <nav className={styles.nav} style={{ position: 'relative' }}>
           <Navigation />
+          <Button onClick={() => setTweetOpen(true)}>Tweet</Button>
           <Button onClick={() => setOpen(true)}>logout</Button>
         </nav>
       </header>
@@ -29,6 +32,7 @@ const SideMenu: FunctionComponent = () => {
         onConfirm={confirmLogout}
         onReject={() => setOpen(false)}
       />
+      <TweetDialog open={tweetOpen} onClose={() => setTweetOpen(false)} />
     </div>
   );
 };
