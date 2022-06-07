@@ -1,31 +1,31 @@
 import StickyHeader from '@Components/sticky-header/Sticky-header';
 import Trends from '@Components/trends/Trends';
-import { useAppSelector } from '@Hooks/redux';
+import { useAppDispatch, useAppSelector } from '@Hooks/redux';
+import { Tweet } from '@Models/tweet';
+import { setTweets } from '@Store/reducers/TweetSlice';
 import { addData, getData } from '@Utils/firestore-methods';
 import { Timestamp } from 'firebase/firestore';
-import { FunctionComponent, useEffect, useMemo, useState } from 'react';
+import { FunctionComponent, useCallback, useEffect, useState } from 'react';
 import Card from './card/Card';
 import HomeHeader from './home-header/Home-header';
-import { ITweet } from './models/tweet';
 
 const Home: FunctionComponent = () => {
   const colName = 'tweets';
+  const dispatch = useAppDispatch();
   const { login } = useAppSelector((state) => state.authReducer);
-  const [tweets, setTweets] = useState<ITweet[]>([]);
+  const { tweets } = useAppSelector((state) => state.tweetReducer);
   const [loading, setLoading] = useState(true);
 
-  const getTweets = useMemo(() => {
-    return () => {
-      getData<ITweet>(colName).then((res) => {
-        setTweets(res);
-        setLoading(false);
-      });
-    };
-  }, []);
+  const getTweets = useCallback(() => {
+    getData<Tweet>(colName).then((resp) => {
+      dispatch(setTweets(resp));
+      setLoading(false);
+    });
+  }, [dispatch]);
 
   const tweetHandler = (text: string) => {
     if (login && typeof login === 'string') {
-      addData<Omit<ITweet, 'id'>>(colName, {
+      addData<Omit<Tweet, 'id'>>(colName, {
         name: login,
         text,
         date: Timestamp.now(),

@@ -1,9 +1,9 @@
 import { FunctionComponent } from 'react';
-import { ITweet } from '../models/tweet';
+import { Tweet } from '../../../models/tweet';
 import styles from './Card.module.scss';
 
 interface TweetCardProps {
-  tweet: ITweet;
+  tweet: Tweet;
   isFirst: boolean;
 }
 
