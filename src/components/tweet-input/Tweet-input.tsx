@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { FunctionComponent, SyntheticEvent, useRef, useState } from 'react';
-import styles from './Tweet-input.module.scss';
+// import styles from './Tweet-input.module.scss';
 
 interface TweetInputProps {
   tweetHandler: Function;
@@ -33,16 +33,15 @@ const TweetInput: FunctionComponent<TweetInputProps> = (
   };
 
   return (
-    <div className={styles.header}>
+    <div>
       <textarea
         placeholder={`What's happening?`}
-        className={styles.header__textarea}
         onChange={onChangeHandler}
         onKeyDown={enterTweet}
         ref={textRef}
       ></textarea>
 
-      <div className={styles.button__container}>
+      <div>
         <Button
           variant="contained"
           onClick={tweet}
@@ -50,15 +49,7 @@ const TweetInput: FunctionComponent<TweetInputProps> = (
         >
           Tweet
         </Button>
-        {textLength >= 240 && (
-          <div
-            className={`${styles.header__symbols} ${
-              textLength > 280 ? styles.red__label : ''
-            }`}
-          >
-            {textLength}
-          </div>
-        )}
+        {textLength >= 240 && <div>{textLength}</div>}
       </div>
     </div>
   );
