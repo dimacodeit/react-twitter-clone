@@ -30,6 +30,8 @@ const Home: FunctionComponent = () => {
         name: login,
         text,
         date: Timestamp.now(),
+        edited: false,
+        updateDate: Timestamp.now(),
       }).then(() => getTweets());
     }
   };

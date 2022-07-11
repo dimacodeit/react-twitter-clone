@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Dialog, DialogTitle, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import TweetInput from '@Components/tweet-input/Tweet-input';
-import { addData, getData } from '@Utils/firestore-methods';
+import { addData, editData, getData } from '@Utils/firestore-methods';
 import { useAppDispatch, useAppSelector } from '@Hooks/redux';
 import { Timestamp } from 'firebase/firestore';
 import { Tweet } from '@Models/tweet';
@@ -10,6 +10,8 @@ import { setTweets } from '@Store/reducers/TweetSlice';
 
 interface TweetDialogProps {
   open: boolean;
+  editTweet?: boolean;
+  tweet?: Tweet;
   onClose: () => void;
 }
 
@@ -21,24 +23,30 @@ const TweetDialog: FunctionComponent<TweetDialogProps> = (
   const { login } = useAppSelector((state) => state.authReducer);
   const tweetHandler = async (text: string) => {
     if (login && typeof login === 'string') {
-      await addData<Omit<Tweet, 'id'>>(colName, {
+      const data = {
         name: login,
         text,
-        date: Timestamp.now(),
-      });
+        date: props?.tweet?.date ?? Timestamp.now(),
+        edited: false,
+        updateDate: Timestamp.now(),
+      };
+      if (props?.editTweet && props?.tweet?.id)
+        await editData<Omit<Tweet, 'id'>>(colName, props.tweet.id, {
+          ...data,
+          edited: true,
+        });
+      else await addData<Omit<Tweet, 'id'>>(colName, data);
+
       const tweets = await getData(colName);
-      console.log(tweets);
       dispatch(setTweets(tweets));
       props.onClose();
-      // .then(() => getData(colName).then((resp) => dispatch(setTweets(resp))))
-      // .then(() => props.onClose());
     }
   };
 
   return (
     <Dialog open={props.open}>
       <DialogTitle></DialogTitle>
-      <TweetInput tweetHandler={tweetHandler} />
+      <TweetInput tweetHandler={tweetHandler} text={props?.tweet?.text} />
       <IconButton
         aria-label="close"
         onClick={props.onClose}

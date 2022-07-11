@@ -27,6 +27,13 @@
   top: 10px;
 }
 
+.card__edit_icon {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  opacity: .4;
+}
+
 @media (max-width: $tablet-breakpoint) {
   .card {
     font-size: 0.75rem;

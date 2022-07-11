@@ -5,7 +5,9 @@ export interface Tweet {
   id: string;
   name: string;
   text: string;
-  date: Timestamp;
+  date: Timestamp | null;
+  edited: boolean;
+  updateDate: Timestamp;
 }
 
 export interface TweetSlice {
