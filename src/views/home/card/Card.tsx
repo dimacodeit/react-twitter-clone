@@ -48,7 +48,7 @@ const TweetCard: FunctionComponent<TweetCardProps> = ({
           ) : null}
         </div>
         <div className={styles.card__menu}>
-          <TweetMenu onOption={handleOption} />
+          <TweetMenu onOption={handleOption} tweetName={tweet.name} />
         </div>
       </div>
       <TweetDialog

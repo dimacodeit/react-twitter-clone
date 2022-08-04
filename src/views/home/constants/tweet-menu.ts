@@ -10,8 +10,12 @@ const TWEET_MENU_OPTIONS: TweetMenuOption[] = [
     label: 'Редактировать',
     value: CardEvent.Update,
   },
+  {
+    label: 'В закладки',
+    value: CardEvent.Bookmark,
+  },
 ];
 
-export const ITEM_HEIGHT = 20;
+export const ITEM_HEIGHT = 30;
 
 export default TWEET_MENU_OPTIONS;
