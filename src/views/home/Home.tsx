@@ -57,18 +57,14 @@ const Home: FunctionComponent = () => {
       <div className="g-border-right">
         <StickyHeader header="Home" />
         <HomeHeader tweetHandler={tweetHandler} />
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          tweets.map((tweet, index) => (
-            <Card
-              tweet={tweet}
-              key={tweet.id}
-              isFirst={index === 0}
-              onEvent={(eventType, data) => cardEvent(eventType, data)}
-            />
-          ))
-        )}
+        {tweets.map((tweet, index) => (
+          <Card
+            tweet={tweet}
+            key={tweet.id}
+            isFirst={index === 0}
+            onEvent={(eventType, data) => cardEvent(eventType, data)}
+          />
+        ))}
       </div>
       <Trends />
     </>
