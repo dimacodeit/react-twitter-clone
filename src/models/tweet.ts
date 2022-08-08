@@ -1,7 +1,7 @@
 import { Timestamp } from 'firebase/firestore';
 
 export interface Tweet {
-  //icon - todo
+  // icon - todo
   id: string;
   name: string;
   text: string;

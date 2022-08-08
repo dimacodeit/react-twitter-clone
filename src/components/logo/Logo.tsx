@@ -1,26 +1,25 @@
-import styles from './Logo.module.scss';
 import svg from '@Assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { FunctionComponent } from 'react';
+import styles from './Logo.module.scss';
 
 interface LogoProps {
   to?: string;
   previewOnly: boolean;
-  className?: string;
 }
 
-const Logo: FunctionComponent<LogoProps> = (props: LogoProps) => {
-  if (props.previewOnly)
-    return <img className={styles.logo} src={svg} alt="twitter logo" />;
+const Logo: FunctionComponent<LogoProps> = ({ previewOnly, to }: LogoProps) => {
+  if (previewOnly) { return <img className={styles.logo} src={svg} alt="twitter logo" />; }
 
-  if (props.to)
+  if (to) {
     return (
       <div className={styles.logo__wrap}>
-        <Link className={styles.logo__hover} to={props.to}>
+        <Link className={styles.logo__hover} to={to}>
           <img className={styles.logo} src={svg} alt="twitter logo" />
         </Link>
       </div>
     );
+  }
 
   return <div>There is no such pattern</div>;
 };

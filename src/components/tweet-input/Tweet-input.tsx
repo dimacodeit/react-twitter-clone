@@ -5,19 +5,21 @@ import {
   useEffect,
   useRef,
   useState,
+  KeyboardEvent,
+  MutableRefObject,
 } from 'react';
 import styles from './Tweet.module.scss';
 
 interface TweetInputProps {
-  tweetHandler: Function;
+  tweetHandler: (text: string) => void;
   text?: string;
 }
 
 const TweetInput: FunctionComponent<TweetInputProps> = (
-  props: TweetInputProps
+  { tweetHandler, text = '' }: TweetInputProps,
 ) => {
   const [textLength, setTextLength] = useState(0);
-  const textRef = useRef() as React.MutableRefObject<HTMLTextAreaElement>;
+  const textRef = useRef() as MutableRefObject<HTMLTextAreaElement>;
 
   const onChangeHandler = (e: SyntheticEvent) => {
     const target = e.target as HTMLTextAreaElement;
@@ -27,31 +29,31 @@ const TweetInput: FunctionComponent<TweetInputProps> = (
   };
 
   const tweet = () => {
-    props.tweetHandler(textRef.current.value);
+    tweetHandler(textRef.current.value);
     textRef.current.value = '';
     textRef.current.style.height = '30px';
     setTextLength(0);
   };
 
-  const enterTweet = (e: React.KeyboardEvent) => {
+  const enterTweet = (e: KeyboardEvent) => {
     if (e.ctrlKey && e.code === 'Enter') {
       if (textLength <= 280) tweet();
     }
   };
 
   useEffect(() => {
-    if (props.text) textRef.current.value = props.text;
-  }, [props.text]);
+    if (text) textRef.current.value = text;
+  }, [text]);
 
   return (
     <div className={styles.header}>
       <textarea
-        placeholder={`What's happening?`}
+        placeholder={'What\'s happening?'}
         className={styles.header__textarea}
         onChange={onChangeHandler}
         onKeyDown={enterTweet}
         ref={textRef}
-      ></textarea>
+      />
 
       <div className={styles.button__container}>
         <Button

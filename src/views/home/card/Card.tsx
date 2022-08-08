@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { Timestamp } from 'firebase/firestore';
 import { FunctionComponent, useState } from 'react';
 import { Tweet } from '../../../models/tweet';
-import { CardEvent } from '../models/enums';
+import CardEvent from '../models/enums';
 import TweetMenu from '../tweet-menu/TweetMenu';
 import styles from './Card.module.scss';
 
@@ -34,8 +34,8 @@ const TweetCard: FunctionComponent<TweetCardProps> = ({
     }
   };
 
-  const getDateString = (date: Timestamp) =>
-    `${date.toDate().toDateString()} ${date.toDate().toLocaleTimeString()}`;
+  const getDateString = (date: Timestamp) => `${date.toDate().toDateString()} ${date.toDate().toLocaleTimeString()}`;
+
   return (
     <>
       <div className={`${styles.card} ${isFirst ? styles.first : ''}`}>
@@ -53,7 +53,7 @@ const TweetCard: FunctionComponent<TweetCardProps> = ({
       </div>
       <TweetDialog
         open={isTweetDialogOpen}
-        editTweet={true}
+        editTweet
         tweet={tweet}
         onClose={() => setTweetDialogOpen(false)}
       />

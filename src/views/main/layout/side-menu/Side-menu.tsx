@@ -1,11 +1,11 @@
 import { Button } from '@mui/material';
 import { useAppDispatch } from '@Hooks/redux';
-import Navigation from '../navigation/Navigation';
-import styles from './Side-menu.module.scss';
 import ConfirmDialog from '@Components/confirm-dialog/Confirm-dialog';
 import { FunctionComponent, useState } from 'react';
 import { signOut } from '@Store/reducers/AuthSlice';
 import TweetDialog from '@Components/tweet-dialog/Tweet-dialog';
+import Navigation from '../navigation/Navigation';
+import styles from './Side-menu.module.scss';
 
 const SideMenu: FunctionComponent = () => {
   const [isOpen, setOpen] = useState(false);

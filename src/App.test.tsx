@@ -11,7 +11,7 @@ describe('Render App Component', () => {
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
   });
 });

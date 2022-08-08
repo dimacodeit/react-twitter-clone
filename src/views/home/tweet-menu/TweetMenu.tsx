@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { FunctionComponent } from 'react';
-import menuOption, { ITEM_HEIGHT } from '../constants/tweet-menu';
 import { useAppSelector } from '@Hooks/redux';
-import { CardEvent } from '../models/enums';
+import menuOption, { ITEM_HEIGHT } from '../constants/tweet-menu';
+import CardEvent from '../models/enums';
 import { TweetMenuOption } from '../models/types';
 
 interface TweetMenuProps {
@@ -17,9 +16,12 @@ interface TweetMenuProps {
 const predicate = (login: string | null, name: string) => (item: TweetMenuOption) => {
   if (item.value === CardEvent.Bookmark) return true;
   return login === name;
-}
+};
 
-const TweetMenu: FunctionComponent<TweetMenuProps> = ({ onOption, tweetName }) => {
+const TweetMenu: FunctionComponent<TweetMenuProps> = ({
+  onOption,
+  tweetName,
+}) => {
   const { login } = useAppSelector((state) => state.authReducer);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

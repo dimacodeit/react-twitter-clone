@@ -17,18 +17,20 @@ interface ConfirmDialogProps {
 }
 
 const ConfirmDialog: FunctionComponent<ConfirmDialogProps> = (
-  props: ConfirmDialogProps
+  {
+    isOpen, titleText, bodyText, onReject, onConfirm,
+  }: ConfirmDialogProps,
 ) => (
-  <Dialog open={props.isOpen}>
-    <DialogTitle>{props.titleText}</DialogTitle>
-    {props.bodyText ? (
+  <Dialog open={isOpen}>
+    <DialogTitle>{titleText}</DialogTitle>
+    {bodyText ? (
       <DialogContent>
-        <DialogContentText>{props.bodyText}</DialogContentText>
+        <DialogContentText>{bodyText}</DialogContentText>
       </DialogContent>
     ) : null}
     <DialogActions>
-      <Button onClick={props.onReject}>Cancel</Button>
-      <Button onClick={props.onConfirm}>Ok</Button>
+      <Button onClick={onReject}>Cancel</Button>
+      <Button onClick={onConfirm}>Ok</Button>
     </DialogActions>
   </Dialog>
 );

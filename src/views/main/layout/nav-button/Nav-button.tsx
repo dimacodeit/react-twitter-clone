@@ -3,8 +3,6 @@ import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Nav-button.module.scss';
 
-export interface INavButtonProps {}
-
 interface NavButtonProps {
   icon: SvgIconComponent;
   label: string;
@@ -17,9 +15,9 @@ const NavButton: FunctionComponent<NavButtonProps> = ({
   label,
 }: NavButtonProps) => (
   <Link tabIndex={-1} className={styles.link} to={to}>
-    <button className={styles.button}>
+    <button type="button" className={styles.button}>
       <Icon className={styles.button__icon} />
-      <label className={styles.button__label}>{label}</label>
+      <span className={styles.button__label}>{label}</span>
     </button>
   </Link>
 );

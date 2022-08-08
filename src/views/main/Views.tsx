@@ -4,20 +4,22 @@ import { Route, Routes } from 'react-router-dom';
 import SignupForm from '../login/Login';
 import Layout from './layout/Layout';
 
-export function Views() {
+const Views = () => {
   const { login } = useAppSelector((state) => state.authReducer);
 
   return (
     <Routes>
       <Route
         path="/*"
-        element={
+        element={(
           <ProtectedRoute canLoad={!!login} redirectTo="login">
             <Layout />
           </ProtectedRoute>
-        }
+        )}
       />
       <Route path="/login" element={<SignupForm />} />
     </Routes>
   );
-}
+};
+
+export default Views;

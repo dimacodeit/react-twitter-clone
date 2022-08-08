@@ -6,10 +6,10 @@ interface StickyHeaderProps {
 }
 
 const StickyHeader: FunctionComponent<StickyHeaderProps> = (
-  props: StickyHeaderProps
+  { header }: StickyHeaderProps,
 ) => (
   <div className={styles.header}>
-    <h2 className={styles.header__title}>{props.header}</h2>
+    <h2 className={styles.header__title}>{header}</h2>
   </div>
 );
 
