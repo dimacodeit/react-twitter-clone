@@ -1,11 +1,11 @@
 import { FunctionComponent, useCallback, useEffect } from 'react';
 import axios from 'axios';
 import Trends from '@Components/trends/Trends';
+import { setNewsReducer } from '@Store/reducers/NewsSlice';
+import { useAppDispatch, useAppSelector } from '@Hooks/redux';
 import ExploreHeader from './header/Explore-header';
 import { IPost, Posts } from './models/news';
 import PostCard from './news-card/Article-card';
-import { setNewsReducer } from '@Store/reducers/NewsSlice';
-import { useAppDispatch, useAppSelector } from '@Hooks/redux';
 
 function duplicate<T>(times: number, data: T[]): T[] {
   let newData: T[] = [];
@@ -20,7 +20,7 @@ const Explore: FunctionComponent = () => {
   const { isLoaded, news } = useAppSelector((state) => state.newsReducer);
   const loadNews = useCallback(() => {
     axios
-      .get<Posts>(`https://jsonplaceholder.typicode.com/posts`)
+      .get<Posts>('https://jsonplaceholder.typicode.com/posts')
       .then(({ data }) => {
         const duplicates = duplicate<IPost>(5, data);
         dispatch(setNewsReducer(duplicates));
@@ -35,8 +35,8 @@ const Explore: FunctionComponent = () => {
     <>
       <div className="g-border-right">
         <ExploreHeader />
-        {news.map((post, index) => (
-          <PostCard key={index} post={post} />
+        {news.map((post) => (
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
       <Trends />

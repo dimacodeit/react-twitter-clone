@@ -1,5 +1,5 @@
 import { TweetMenuOption } from '../models/types';
-import { CardEvent } from '../models/enums';
+import CardEvent from '../models/enums';
 
 const TWEET_MENU_OPTIONS: TweetMenuOption[] = [
   {

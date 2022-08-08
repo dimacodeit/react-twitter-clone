@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { NewsSlice } from '@Models/news-slice';
 import { createSlice } from '@reduxjs/toolkit';
 

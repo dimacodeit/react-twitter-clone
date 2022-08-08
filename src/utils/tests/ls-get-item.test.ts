@@ -1,4 +1,4 @@
-import { lsGetItem } from '../ls-get-item';
+import lsGetItem  from '../ls-get-item';
 
 describe('[utils] ls get item', () => {
   beforeEach(() => {

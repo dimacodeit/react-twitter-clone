@@ -1,4 +1,4 @@
-import { deepCopy } from '../deep-copy';
+import deepCopy from '../deep-copy';
 
 describe('[utils] deep copy', () => {
   test('check array', () => {

@@ -16,7 +16,9 @@ interface TweetDialogProps {
 }
 
 const TweetDialog: FunctionComponent<TweetDialogProps> = (
-  props: TweetDialogProps
+  {
+    open, editTweet, tweet, onClose,
+  }: TweetDialogProps,
 ) => {
   const colName = 'tweets';
   const dispatch = useAppDispatch();
@@ -26,30 +28,30 @@ const TweetDialog: FunctionComponent<TweetDialogProps> = (
       const data = {
         name: login,
         text,
-        date: props?.tweet?.date ?? Timestamp.now(),
+        date: tweet?.date ?? Timestamp.now(),
         edited: false,
         updateDate: Timestamp.now(),
       };
-      if (props?.editTweet && props?.tweet?.id)
-        await editData<Omit<Tweet, 'id'>>(colName, props.tweet.id, {
+      if (editTweet && tweet?.id) {
+        await editData<Omit<Tweet, 'id'>>(colName, tweet.id, {
           ...data,
           edited: true,
         });
-      else await addData<Omit<Tweet, 'id'>>(colName, data);
+      } else await addData<Omit<Tweet, 'id'>>(colName, data);
 
       const tweets = await getData(colName);
       dispatch(setTweets(tweets));
-      props.onClose();
+      onClose();
     }
   };
 
   return (
-    <Dialog open={props.open}>
-      <DialogTitle></DialogTitle>
-      <TweetInput tweetHandler={tweetHandler} text={props?.tweet?.text} />
+    <Dialog open={open}>
+      <DialogTitle />
+      <TweetInput tweetHandler={tweetHandler} text={tweet?.text} />
       <IconButton
         aria-label="close"
-        onClick={props.onClose}
+        onClick={onClose}
         sx={{
           position: 'absolute',
           left: 8,

@@ -4,6 +4,10 @@ export type ITrends = {
   tweets: number;
 };
 
+function randomTweet() {
+  return Number((Math.random() * 100000).toFixed());
+}
+
 export const mockTrends: ITrends[] = [
   {
     name: 'iOS 16',
@@ -47,7 +51,3 @@ export const mockTrends: ITrends[] = [
     tweets: randomTweet(),
   },
 ];
-
-function randomTweet() {
-  return Number((Math.random() * 100000).toFixed());
-}

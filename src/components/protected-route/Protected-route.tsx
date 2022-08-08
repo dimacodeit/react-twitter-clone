@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 import { Navigate } from 'react-router';
+
 interface ProtectedRouteProps {
   children: JSX.Element;
   canLoad: boolean;

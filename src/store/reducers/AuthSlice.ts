@@ -1,6 +1,6 @@
 import { IAuthModel } from '@Models/auth';
 import { createSlice } from '@reduxjs/toolkit';
-import { lsGetItem } from '@Utils/ls-get-item';
+import lsGetItem from '@Utils/ls-get-item';
 
 const initialState: IAuthModel = {
   login: lsGetItem('authName', null),

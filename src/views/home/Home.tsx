@@ -5,8 +5,8 @@ import { Tweet } from '@Models/tweet';
 import { setTweets } from '@Store/reducers/TweetSlice';
 import { addData, deleteData, getData } from '@Utils/firestore-methods';
 import { Timestamp } from 'firebase/firestore';
-import { FunctionComponent, useCallback, useEffect, useState } from 'react';
-import { CardEvent } from './models/enums';
+import { FunctionComponent, useCallback, useEffect } from 'react';
+import CardEvent from './models/enums';
 import Card from './card/Card';
 import HomeHeader from './home-header/Home-header';
 
@@ -15,12 +15,10 @@ const Home: FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const { login } = useAppSelector((state) => state.authReducer);
   const { tweets } = useAppSelector((state) => state.tweetReducer);
-  const [loading, setLoading] = useState(true);
 
   const getTweets = useCallback(() => {
     getData<Tweet>(colName).then((resp) => {
       dispatch(setTweets(resp));
-      setLoading(false);
     });
   }, [dispatch]);
 
@@ -36,15 +34,14 @@ const Home: FunctionComponent = () => {
     }
   };
 
-  const cardEvent = (cardEvent: CardEvent, data: Tweet) => {
-    switch (cardEvent) {
+  const cardEvent = (event: CardEvent, data: Tweet) => {
+    switch (event) {
       case CardEvent.Delete:
         deleteData(colName, data.id).then(() => getTweets());
         break;
 
       default:
-        console.log('There is no such event');
-        break;
+        throw Error('There is no such event');
     }
   };
 
