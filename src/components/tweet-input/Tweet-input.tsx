@@ -1,9 +1,16 @@
 import { Button } from '@mui/material';
-import { FunctionComponent, SyntheticEvent, useRef, useState } from 'react';
+import {
+  FunctionComponent,
+  SyntheticEvent,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import styles from './Tweet.module.scss';
 
 interface TweetInputProps {
   tweetHandler: Function;
+  text?: string;
 }
 
 const TweetInput: FunctionComponent<TweetInputProps> = (
@@ -31,6 +38,10 @@ const TweetInput: FunctionComponent<TweetInputProps> = (
       if (textLength <= 280) tweet();
     }
   };
+
+  useEffect(() => {
+    if (props.text) textRef.current.value = props.text;
+  }, [props.text]);
 
   return (
     <div className={styles.header}>

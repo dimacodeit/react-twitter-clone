@@ -44,7 +44,7 @@ $general-padding: 1rem;
   font-size: 0.9rem;
 }
 
-@media (max-width: $tablet-breakpoint) {
+@media (max-width: $laptop-breakpoint) {
   .trends {
     display: none;
   }
