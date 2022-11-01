@@ -3,41 +3,34 @@ import Trends from '@Components/trends/Trends';
 import { useAppDispatch, useAppSelector } from '@Hooks/redux';
 import { Tweet } from '@Models/tweet';
 import { setTweets } from '@Store/reducers/TweetSlice';
-import { addData, deleteData, getData } from '@Utils/firestore-methods';
-import { Timestamp } from 'firebase/firestore';
 import { FunctionComponent, useCallback, useEffect } from 'react';
+import { createTweet, deleteTweet, getTweets } from '../../requests/tweets';
 import CardEvent from './models/enums';
 import Card from './card/Card';
 import HomeHeader from './home-header/Home-header';
 
 const Home: FunctionComponent = () => {
-  const colName = 'tweets';
   const dispatch = useAppDispatch();
   const { login } = useAppSelector((state) => state.authReducer);
   const { tweets } = useAppSelector((state) => state.tweetReducer);
 
-  const getTweets = useCallback(() => {
-    getData<Tweet>(colName).then((resp) => {
-      dispatch(setTweets(resp));
-    });
+  const fetchTweets = useCallback(() => {
+    getTweets().then((resp) => dispatch(setTweets(resp.data)));
   }, [dispatch]);
 
   const tweetHandler = (text: string) => {
     if (login && typeof login === 'string') {
-      addData<Omit<Tweet, 'id'>>(colName, {
+      createTweet({
         name: login,
         text,
-        date: Timestamp.now(),
-        edited: false,
-        updateDate: Timestamp.now(),
-      }).then(() => getTweets());
+      }).then(() => fetchTweets());
     }
   };
 
   const cardEvent = (event: CardEvent, data: Tweet) => {
     switch (event) {
       case CardEvent.Delete:
-        deleteData(colName, data.id).then(() => getTweets());
+        deleteTweet(data.id).then(() => fetchTweets());
         break;
 
       default:
@@ -46,8 +39,8 @@ const Home: FunctionComponent = () => {
   };
 
   useEffect(() => {
-    getTweets();
-  }, [getTweets]);
+    fetchTweets();
+  }, [fetchTweets]);
 
   return (
     <>

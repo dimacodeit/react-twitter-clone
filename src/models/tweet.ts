@@ -1,15 +1,24 @@
-import { Timestamp } from 'firebase/firestore';
-
 export interface Tweet {
   // icon - todo
   id: string;
   name: string;
   text: string;
-  date: Timestamp | null;
+  date: string;
   edited: boolean;
-  updateDate: Timestamp;
+  updateDate?: string;
 }
 
 export interface TweetSlice {
   tweets: Tweet[];
+}
+
+export type TweetCreateData = {
+  name: string;
+  text: string;
+}
+
+export type TweetUpdateData = {
+  name: string;
+  text: string;
+  id: string;
 }

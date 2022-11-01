@@ -1,7 +1,6 @@
 import ConfirmDialog from '@Components/confirm-dialog/Confirm-dialog';
 import TweetDialog from '@Components/tweet-dialog/Tweet-dialog';
 import EditIcon from '@mui/icons-material/Edit';
-import { Timestamp } from 'firebase/firestore';
 import { FunctionComponent, useState } from 'react';
 import { Tweet } from '../../../models/tweet';
 import CardEvent from '../models/enums';
@@ -9,7 +8,7 @@ import TweetMenu from '../tweet-menu/TweetMenu';
 import styles from './Card.module.scss';
 
 interface TweetCardProps {
-  tweet: Required<Tweet>;
+  tweet: Tweet;
   isFirst: boolean;
   onEvent: (eventType: CardEvent, tweet: Tweet) => void;
 }
@@ -34,14 +33,12 @@ const TweetCard: FunctionComponent<TweetCardProps> = ({
     }
   };
 
-  const getDateString = (date: Timestamp) => `${date.toDate().toDateString()} ${date.toDate().toLocaleTimeString()}`;
-
   return (
     <>
       <div className={`${styles.card} ${isFirst ? styles.first : ''}`}>
         <h3>{tweet.name}</h3>
         <p className={styles.card__text}>{tweet.text}</p>
-        <span>{getDateString(tweet.updateDate ?? tweet.date)}</span>
+        <span>{tweet?.updateDate ?? tweet.date}</span>
         <div className={styles.card__edit_icon}>
           {tweet.edited ? (
             <EditIcon fontSize="small" sx={{ color: '#808080' }} />
