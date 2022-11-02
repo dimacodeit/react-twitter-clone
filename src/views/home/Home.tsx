@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '@Hooks/redux';
 import { Tweet } from '@Models/tweet';
 import { setTweets } from '@Store/reducers/TweetSlice';
 import { FunctionComponent, useCallback, useEffect } from 'react';
-import { createTweet, deleteTweet, getTweets } from '../../requests/tweets';
+import { createTweet, deleteTweet, getTweets } from '../../services/tweets';
 import CardEvent from './models/enums';
 import Card from './card/Card';
 import HomeHeader from './home-header/Home-header';

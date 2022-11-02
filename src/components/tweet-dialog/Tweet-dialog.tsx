@@ -6,7 +6,7 @@ import TweetInput from '@Components/tweet-input/Tweet-input';
 import { useAppDispatch, useAppSelector } from '@Hooks/redux';
 import { Tweet } from '@Models/tweet';
 import { setTweets } from '@Store/reducers/TweetSlice';
-import { createTweet, getTweets, updateTweet } from '../../requests/tweets';
+import { createTweet, getTweets, updateTweet } from '../../services/tweets';
 
 interface TweetDialogProps {
   open: boolean;
@@ -36,7 +36,7 @@ const TweetDialog: FunctionComponent<TweetDialogProps> = (
     }
 
     const tweets = await getTweets();
-    dispatch(setTweets(tweets));
+    dispatch(setTweets(tweets.data));
     onClose();
   };
 
